@@ -11,18 +11,18 @@ possibleError <- tryCatch(
   error=function(e) e
 )
 if(!inherits(possibleError, "error")){
-  inventory <- dbGetQuery(jdbcConnection, "select * from inventory")
+  transactions <- dbGetQuery(jdbcConnection, "select * from transactions")
   dbDisconnect(jdbcConnection)
 }
-head(inventory)
+head(transactions)
 
-ggplot(data = diamonds) + geom_histogram(aes(x = carat))
-ggplot(data = diamonds) + geom_density(aes(x = carat, fill = "gray50"))
-ggplot(diamonds, aes(x = carat, y = price)) + geom_point()
-p <- ggplot(diamonds, aes(x = carat, y = price)) + geom_point(aes(color = color))
+ggplot(data = transactions) + geom_histogram(aes(x = carat))
+ggplot(data = transactions) + geom_density(aes(x = carat, fill = "gray50"))
+ggplot(transactions, aes(x = carat, y = price)) + geom_point()
+p <- ggplot(transactions, aes(x = carat, y = price)) + geom_point(aes(color = color))
 p + facet_wrap(~color) # For ~, see http://stat.ethz.ch/R-manual/R-patched/library/base/html/tilde.html and http://stat.ethz.ch/R-manual/R-patched/library/stats/html/formula.html
 p + facet_grid(cut ~ clarity)
-p <- ggplot(diamonds, aes(x = carat)) + geom_histogram(aes(color = color), binwidth = max(diamonds$carat)/30)
+p <- ggplot(transactions, aes(x = carat)) + geom_histogram(aes(color = color), binwidth = max(transactions$carat)/30)
 p + facet_wrap(~color) 
 p + facet_grid(cut ~ clarity)
 
