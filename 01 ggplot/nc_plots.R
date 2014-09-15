@@ -14,15 +14,11 @@ possibleError <- tryCatch(
   error=function(e) e
 )
 if(!inherits(possibleError, "error")){
-  #transactions <- dbGetQuery(jdbcConnection, "select * from transactions")
-  #inventory <- dbGetQuery(jdbcConnection, "select * from inventory")
   merged <- dbGetQuery(jdbcConnection, "select * from inventory, transactions where transactions.nsn = inventory.nsn and transactions.\"State\" <> 'PR' and transactions.\"State\" <> 'VI' and transactions.\"State\" <> 'DC' and transactions.\"State\" <> 'GU'")
   dbDisconnect(jdbcConnection)
 }
-#head(merged)
 states=map_data("state")
 county=map_data("county")
-#head(states)
 
 #Color Slider
 low <- rgb(255,204,153,255,maxColorValue=255)
@@ -45,23 +41,18 @@ states$region <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", states$region
 
 #USED THIS TO ABBREVIATE THE STATES COLUMN
 states$abb <- state.abb[match(states$region,state.name)]
-#states$abb
-#head(states)
 
 #USED THIS TO ADD ABBREVIATIONS TO SDATA
 sdata$abb <- state.abb[order(state.abb)]
-#head(sdata)
 
 
 #USED THIS TO MERGE SDATA WITH STATES BY ABB
 comb <- merge(states,sdata,by="abb")
-#head(comb)
 
 #USED THIS TO SORT BY ORDER FOR PROPER DRAWING
 attach(comb)
 scomb <- comb[order(order),]
 detach(comb)
-#head(scomb)
 
 #USED THIS TO PLOT THE TEMP MAP
 t<- ggplot()
@@ -96,13 +87,11 @@ names(county)[names(county)=="subregion"] <- "County"
 
 #USED THIS TO MERGE SDATA WITH STATES BY ABB
 comb <- merge(county,cdata,by="County")
-#head(comb)
 
 #USED THIS TO SORT BY ORDER FOR PROPER DRAWING
 attach(comb)
 scomb <- comb[order(order),]
 detach(comb)
-#head(scomb)
 
 #USED THIS TO PLOT THE TEMP MAP
 t2<- ggplot()
