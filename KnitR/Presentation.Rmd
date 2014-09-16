@@ -1,33 +1,34 @@
 1033 DoD Acquisition Data
 ============
 
-###RStudio config:
+####RStudio config:
 ```{r}
 sessionInfo()
 ```
+####Our Database Model: 
+![](../model/Relational_1.png)
 
-SQL Query:
+####SQL Query:
 ```
   merged <- dbGetQuery(jdbcConnection, "select * from inventory, transactions where transactions.nsn = inventory.nsn and transactions.\"State\" <> 'PR' and transactions.\"State\" <> 'VI' and transactions.\"State\" <> 'DC' and transactions.\"State\" <> 'GU'")
   
 ```
 
-Building the Map Data
+#####Building the Map Data:
 ```
 states=map_data("state")
 county=map_data("county")
 ```
 
-Color Legend Setup
+#####Color Legend Setup:
 ```  
 low <- rgb(255,234,180,255,maxColorValue=255)
 high <- "red"
 countylines <- rgb(30,30,30,150,maxColorValue=255)
 ```
 
-1033 State Spending Histogram
-===
-Plotting and Building Data Frame for Reuse
+##1033 State Spending Histogram:
+####Plotting and Building Data Frame for Reuse
 ```
 h <- ggplot(data=merged) 
 h <- h + geom_histogram(aes(x=State, fill=..count.., weight=Quantity*Acquisition_Cost/1000000))
@@ -38,7 +39,7 @@ sdata <- as.data.frame(hg$data[1])
 ```
 ![](./HistogramStateCost.png)
 
-Abbreviate State Data
+####Abbreviate State Data
 ```
 states$region <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", states$region, perl=TRUE)
 states$abb <- state.abb[match(states$region,state.name)]
@@ -46,7 +47,7 @@ sdata$abb <- state.abb[order(state.abb)]
 
 ```
 
-Merge and Sort State Data
+####Merge and Sort State Data
 ```
 comb <- merge(states,sdata,by="abb")
 
@@ -55,9 +56,8 @@ scomb <- comb[order(order),]
 detach(comb)
 ```
 
-1033 State Heat Map
-====
-Plotting
+##1033 State Heat Map
+####Plotting
 ```
 t<- ggplot()
 t<-t+geom_polygon(data=scomb,aes(x=long,y=lat,group=group.x,fill=count),size=0.5,color="black")
@@ -66,7 +66,7 @@ t + scale_fill_gradient("$ in millions", low = low, high = high)
 ![](./HeatMapState.png)
 
 
-Build a Histogram Weighted Data Frame by County and Sort
+####Build a Histogram Weighted Data Frame by County and Sort
 ```
 merged$CST <- paste(merged$County,merged$State,sep=", ")
 h2 <- ggplot(data=merged) 
@@ -98,9 +98,8 @@ scomb <- comb[order(order),]
 detach(comb)
 ```
 
-1033 County Heat Map
-====
-Plotting
+##1033 County Heat Map
+####Plotting
 ```
 t2<- ggplot()
 t2 <-t2 +geom_polygon(data=states,aes(x=long,y=lat,group=group),fill=low)
@@ -110,7 +109,7 @@ t2 + scale_fill_gradient("$ in millions", low = low, high = high)
 ```
 ![](./HeatMapCounty.png)
 
-Top 10 Counties in Dollars Spent
+####Top 10 Counties in Dollars Spent
 ```
 topcounties <- subset(scomb,select=c(CST,subregion,region,count))
 attach(topcounties)
@@ -120,9 +119,8 @@ topcounties <- tmp
 top10counties <- head(unique(topcounties),10)
 ```
 
-1033 Top 10 Spending Counties
-====
-Plotting
+##1033 Top 10 Spending Counties
+####Plotting
 ```
 t10 <- ggplot(data=top10counties) 
 t10 <- t10 + geom_histogram(aes(x=CST, fill=..count.., weight=count))
@@ -130,7 +128,7 @@ t10 + scale_fill_gradient("$ in millions", low = low, high = high)
 ```
 ![](./HistogramTopCountyCost.png)
 
-Numbers by Equipment Category
+####Numbers by Equipment Category
 ```
 catData <- subset(merged,select=c(FEDERAL_SUPPLY_CATEGORY_NAME,Quantity,Acquisition_Cost))
 
@@ -140,9 +138,8 @@ detach(catData);
 cats <- unique(cats$FEDERAL_SUPPLY_CATEGORY_NAME);
 ```
 
-1033 Equipment Category Spending
-====
-Plotting
+##1033 Equipment Category Spending
+####Plotting
 ```
 hcd <- ggplot(data=catData)
 hcd <- hcd + geom_histogram(aes(x=FEDERAL_SUPPLY_CATEGORY_NAME, fill=..count..,weight=Quantity*Acquisition_Cost))
@@ -152,9 +149,8 @@ catDataW$FEDERAL_SUPPLY_CATEGORY_NAME <- cats
 ```
 ![](./HistogramTopCategoryCost.png)
 
-1033 Equipment Word Map
-====
-Plotting
+##1033 Equipment Word Map
+####Plotting
 ```
 catDataW$freq <- as.integer(catDataW$count)
 
