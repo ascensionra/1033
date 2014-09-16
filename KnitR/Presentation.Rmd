@@ -141,22 +141,32 @@ cats <- unique(cats$FEDERAL_SUPPLY_CATEGORY_NAME);
 ##1033 Equipment Category Spending
 ####Plotting
 ```
+catData <- subset(merge(merged,alias,by="FEDERAL_SUPPLY_CATEGORY"),select=c(ALIAS,Quantity,Acquisition_Cost))
+
+attach(catData);
+cats <- catData[order(ALIAS),]
+detach(catData);
+cats <- unique(cats$ALIAS);
+
 hcd <- ggplot(data=catData)
-hcd <- hcd + geom_histogram(aes(x=FEDERAL_SUPPLY_CATEGORY_NAME, fill=..count..,weight=Quantity*Acquisition_Cost))
+hcd <- hcd + geom_histogram(aes(x=ALIAS, fill=..count..,weight=Quantity*Acquisition_Cost/1000))
 hcd + scale_fill_gradient("$ spent per category", low = low, high = high)
-catDataW <- as.data.frame(ggplot_build(hcd)$data[1])
-catDataW$FEDERAL_SUPPLY_CATEGORY_NAME <- cats
 ```
 ![](./HistogramTopCategoryCost.png)
 
 ##1033 Equipment Word Map
 ####Plotting
 ```
+catDataW <- as.data.frame(ggplot_build(hcd)$data[1])
+catDataW$ALIAS <- cats
+
 catDataW$freq <- as.integer(catDataW$count)
+catDataW$freq <- sqrt(catDataW$freq)
+catDataW$ALIAS[69] <- "VEHICLES"
 
 pal2=brewer.pal(8,"Dark2")
 
-wordcloud(catDataW$FEDERAL_SUPPLY_CATEGORY_NAME, catDataW$freq,scale=c(40,0.5), max.words=300, 
-          random.order=FALSE,random.color=TRUE, rot.per=0.35, colors=pal2)
+wordcloud(catDataW$ALIAS, catDataW$freq,scale=c(2,0.2), max.words=80, 
+          random.order=FALSE,random.color=FALSE, rot.per=0.35, colors=pal2)
 ```
 ![](./WordMapCategories.png)

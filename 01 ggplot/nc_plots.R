@@ -16,6 +16,7 @@ possibleError <- tryCatch(
   error=function(e) e
 )
 if(!inherits(possibleError, "error")){
+  alias <- dbGetQuery(jdbcConnection, "select * from aliases")
   merged <- dbGetQuery(jdbcConnection, "select * from inventory, transactions where transactions.nsn = inventory.nsn and transactions.\"State\" <> 'PR' and transactions.\"State\" <> 'VI' and transactions.\"State\" <> 'DC' and transactions.\"State\" <> 'GU'")
   dbDisconnect(jdbcConnection)
 }
@@ -127,25 +128,28 @@ t10 <- t10 + geom_histogram(aes(x=CST, fill=..count.., weight=count))
 t10 + scale_fill_gradient("$ in millions", low = low, high = high)
 
 ################CLASS NAME DATA ANALYSIS#################
-catData <- subset(merged,select=c(FEDERAL_SUPPLY_CATEGORY_NAME,Quantity,Acquisition_Cost))
+catData <- subset(merge(merged,alias,by="FEDERAL_SUPPLY_CATEGORY"),select=c(ALIAS,Quantity,Acquisition_Cost))
 
 attach(catData);
-cats <- catData[order(FEDERAL_SUPPLY_CATEGORY_NAME),]
+cats <- catData[order(ALIAS),]
 detach(catData);
-cats <- unique(cats$FEDERAL_SUPPLY_CATEGORY_NAME);
+cats <- unique(cats$ALIAS);
 
 hcd <- ggplot(data=catData)
-hcd <- hcd + geom_histogram(aes(x=FEDERAL_SUPPLY_CATEGORY_NAME, fill=..count..,weight=Quantity*Acquisition_Cost))
+hcd <- hcd + geom_histogram(aes(x=ALIAS, fill=..count..,weight=Quantity*Acquisition_Cost/1000))
 hcd + scale_fill_gradient("$ spent per category", low = low, high = high)
+
 catDataW <- as.data.frame(ggplot_build(hcd)$data[1])
-catDataW$FEDERAL_SUPPLY_CATEGORY_NAME <- cats
+catDataW$ALIAS <- cats
 
 catDataW$freq <- as.integer(catDataW$count)
+catDataW$freq <- sqrt(catDataW$freq)
+catDataW$ALIAS[69] <- "VEHICLES"
 
 pal2=brewer.pal(8,"Dark2")
 
-wordcloud(catDataW$FEDERAL_SUPPLY_CATEGORY_NAME, catDataW$freq,scale=c(40,0.5), max.words=300, 
-          random.order=FALSE,random.color=TRUE, rot.per=0.35, colors=pal2)
+wordcloud(catDataW$ALIAS, catDataW$freq,scale=c(2,0.2), max.words=80, 
+          random.order=FALSE,random.color=FALSE, rot.per=0.35, colors=pal2)
 
 
 
