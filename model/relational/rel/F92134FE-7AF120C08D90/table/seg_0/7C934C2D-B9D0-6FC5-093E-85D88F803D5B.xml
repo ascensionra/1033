@@ -1,0 +1,171 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7C934C2D-B9D0-6FC5-093E-85D88F803D5B" name="INVENTORY">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>INVENTORY</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:25 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NSN" id="E665A4B1-B39B-4A79-C3D0-714CB9E237C9">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>NSN</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Item_Name" id="CC2D2F52-532C-6A21-4717-2FF6510DE020">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>Item_Name</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UI" id="9B630966-3E8E-21BE-EE74-00884E3568F2">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>UI</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Acquisition_Cost" id="DD12DF74-16C5-72F9-41A1-C3B32FDA8CF9">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>Acquisition_Cost</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>126</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIPS" id="3D30C1E7-F0D3-E0F9-1585-04BE0CF2BB07">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>FIPS</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FEDERAL_SUPPLY_CATEGORY" id="9CA00D45-430E-14B9-D921-192791AE286C">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>FEDERAL_SUPPLY_CATEGORY</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FEDERAL_SUPPLY_CATEGORY_NAME" id="56BC830E-7EF0-23A6-7266-88116EBF9965">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>FEDERAL_SUPPLY_CATEGORY_NAME</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FEDERAL_SUPPLY_CLASS" id="F336AACA-8C5F-E4C4-AD99-6FBED5A324A1">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>FEDERAL_SUPPLY_CLASS</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FEDERAL_SUPPLY_CLASS_NAME" id="13692007-3329-1933-5B70-C6B5176925A1">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>INVENTORY</sourceObjSchema>
+<sourceObjName>FEDERAL_SUPPLY_CLASS_NAME</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3E550889-33AF-375D-113D-30A2BF66C748" name="INVENTORY_PK">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>INVENTORY_PK</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:27 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E665A4B1-B39B-4A79-C3D0-714CB9E237C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC4128B5-FE89-1E6A-B4E6-20A20F37462F" name="INVENTORY_PK">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>INVENTORY_PK</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E665A4B1-B39B-4A79-C3D0-714CB9E237C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

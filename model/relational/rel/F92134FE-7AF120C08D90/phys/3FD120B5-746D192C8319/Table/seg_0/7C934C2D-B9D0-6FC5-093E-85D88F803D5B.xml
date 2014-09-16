@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="INVENTORY" directorySegmentName="seg_0" id="7C934C2D-B9D0-6FC5-093E-85D88F803D5B">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:25 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>88A215E6-BBD6-B211-53B8-F31A873136D9</segment>
+<tableSpace>876FB850-D562-AEC8-0774-03E9E9DFB653</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="INVENTORY_PK" id="BC4128B5-FE89-1E6A-B4E6-20A20F37462F">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<segment>9DB6EA2C-E55B-CA23-A921-CD8AC7255861</segment>
+<tableSpace>876FB850-D562-AEC8-0774-03E9E9DFB653</tableSpace>
+</IndexProxy>
+</indexProxies>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="FEDERAL_SUPPLY_CLASS_NAME" id="13692007-3329-1933-5B70-C6B5176925A1">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FIPS" id="3D30C1E7-F0D3-E0F9-1585-04BE0CF2BB07">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FEDERAL_SUPPLY_CATEGORY_NAME" id="56BC830E-7EF0-23A6-7266-88116EBF9965">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="UI" id="9B630966-3E8E-21BE-EE74-00884E3568F2">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FEDERAL_SUPPLY_CATEGORY" id="9CA00D45-430E-14B9-D921-192791AE286C">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Item_Name" id="CC2D2F52-532C-6A21-4717-2FF6510DE020">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="Acquisition_Cost" id="DD12DF74-16C5-72F9-41A1-C3B32FDA8CF9">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="NSN" id="E665A4B1-B39B-4A79-C3D0-714CB9E237C9">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FEDERAL_SUPPLY_CLASS" id="F336AACA-8C5F-E4C4-AD99-6FBED5A324A1">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:26 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="INVENTORY_PK" id="3E550889-33AF-375D-113D-30A2BF66C748">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:27 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<segment>9DB6EA2C-E55B-CA23-A921-CD8AC7255861</segment>
+<tableSpace>876FB850-D562-AEC8-0774-03E9E9DFB653</tableSpace>
+<existingIndex>BC4128B5-FE89-1E6A-B4E6-20A20F37462F</existingIndex>
+<indexSegment>9DB6EA2C-E55B-CA23-A921-CD8AC7255861</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
