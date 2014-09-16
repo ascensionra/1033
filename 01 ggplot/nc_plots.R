@@ -29,8 +29,10 @@ countylines <- rgb(30,30,30,150,maxColorValue=255)
 
 #USED THIS TO BUILD A HISTOGRAM WEIGHT DATA FRAME
 h <- ggplot(data=merged) 
-h <- h + geom_histogram(aes(x=State, fill=..count.., weight=Quantity*Acquisition_Cost))
+h <- h + geom_histogram(aes(x=State, fill=..count.., weight=Quantity*Acquisition_Cost/1000000))
+h + scale_fill_gradient("$ in millions", low = low, high = high)
 hg <- ggplot_build(h)
+
 
 #USED THIS TO CONVERT THE LIST TO A DATA FRAME 
 sdata <- as.data.frame(hg$data[1])
@@ -52,7 +54,6 @@ attach(comb)
 scomb <- comb[order(order),]
 detach(comb)
 
-scomb$count <- scomb$count/1000000
 
 #USED THIS TO PLOT THE TEMP MAP
 t<- ggplot()
@@ -67,7 +68,8 @@ county$subregion <- toupper(county$subregion)
 
 #USED THIS TO BUILD A HISTOGRAM WEIGHTED DATA FRAME BY COUNTY
 h2 <- ggplot(data=merged) 
-h2 <- h2 + geom_histogram(aes(x=County, fill=..count.., weight=Quantity*Acquisition_Cost))
+h2 <- h2 + geom_histogram(aes(x=County, fill=..count.., weight=Quantity*Acquisition_Cost/1000000))
+h2 + scale_fill_gradient("$ in millions", low = low, high = high)
 hg2 <- ggplot_build(h2)
 
 #USED THIS TO CONVERT THE LIST TO A DATA FRAME 
@@ -93,7 +95,6 @@ attach(comb)
 scomb <- comb[order(order),]
 detach(comb)
 
-scomb$count <- scomb$count/1000000
 
 #USED THIS TO PLOT THE TEMP MAP
 t2<- ggplot()
