@@ -3,7 +3,7 @@ options(java.parameters="-Xmx2g")
 library(rJava)
 library(RJDBC)
 
-jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="/usr/lib/jvm/java-7-openjdk-i386/ojdbc6.jar")
+jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
 
 # In the following, use your username and password instead of "CS347_prof", "orcl_prof" once you have an Oracle account
 possibleError <- tryCatch(

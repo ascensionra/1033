@@ -1,0 +1,18 @@
+1033 County Heat Map
+====
+Building our county data:
+```
+x<-bullshit
+```
+
+![](./HeatMapCounty.png)
+
+1033 State Heat Map
+====
+Building our state data:
+```
+x<-bullshit
+```
+
+![](./HeatMapState.png)
+
