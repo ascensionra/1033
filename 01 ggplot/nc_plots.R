@@ -17,12 +17,14 @@ if(!inherits(possibleError, "error")){
   merged <- dbGetQuery(jdbcConnection, "select * from inventory, transactions where transactions.nsn = inventory.nsn and transactions.\"State\" <> 'PR' and transactions.\"State\" <> 'VI' and transactions.\"State\" <> 'DC' and transactions.\"State\" <> 'GU'")
   dbDisconnect(jdbcConnection)
 }
+# START HERE FOR REBUILDING
 states=map_data("state")
 county=map_data("county")
 
 #Color Slider
-low <- rgb(255,204,153,255,maxColorValue=255)
+low <- rgb(255,234,180,255,maxColorValue=255)
 high <- "red"
+countylines <- rgb(30,30,30,150,maxColorValue=255)
 
 
 #USED THIS TO BUILD A HISTOGRAM WEIGHT DATA FRAME
@@ -32,19 +34,15 @@ hg <- ggplot_build(h)
 
 #USED THIS TO CONVERT THE LIST TO A DATA FRAME 
 sdata <- as.data.frame(hg$data[1])
-#s <- ggplot(data=sdata) + geom_histogram(stat="identity",aes(x=group,fill=y,y=y))
-#s
 
 #USED THIS TO CAPITALIZE THE STATES COLUMN FOR ABBREVIATION MAKING
 states$region <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", states$region, perl=TRUE)
-#states$region
 
 #USED THIS TO ABBREVIATE THE STATES COLUMN
 states$abb <- state.abb[match(states$region,state.name)]
 
 #USED THIS TO ADD ABBREVIATIONS TO SDATA
 sdata$abb <- state.abb[order(state.abb)]
-
 
 #USED THIS TO MERGE SDATA WITH STATES BY ABB
 comb <- merge(states,sdata,by="abb")
@@ -54,10 +52,12 @@ attach(comb)
 scomb <- comb[order(order),]
 detach(comb)
 
+scomb$count <- scomb$count/1000000
+
 #USED THIS TO PLOT THE TEMP MAP
 t<- ggplot()
-t<-t+geom_polygon(data=scomb,aes(x=long,y=lat,group=group.x,fill=count),color="black")
-t + scale_fill_gradient("$ Spent", low = low, high = high)
+t<-t+geom_polygon(data=scomb,aes(x=long,y=lat,group=group.x,fill=count),size=0.5,color="black")
+t + scale_fill_gradient("$ in millions", low = low, high = high)
 
 
 
@@ -93,12 +93,14 @@ attach(comb)
 scomb <- comb[order(order),]
 detach(comb)
 
+scomb$count <- scomb$count/1000000
+
 #USED THIS TO PLOT THE TEMP MAP
 t2<- ggplot()
 t2 <-t2 +geom_polygon(data=states,aes(x=long,y=lat,group=group),fill=low)
-t2<-t2+geom_polygon(data=scomb,aes(x=long,y=lat,group=group.x,fill=count),color="grey30")
-t2 <-t2 +geom_polygon(data=states,aes(x=long,y=lat,group=group),fill=rgb(0,0,0,0),color="black")
-t2 + scale_fill_gradient("$ Spent", low = low, high = high)
+t2<-t2+geom_polygon(data=scomb,aes(x=long,y=lat,group=group.x,fill=count),color=countylines)
+t2 <-t2 +geom_polygon(data=states,aes(x=long,y=lat,group=group),size=0.5,fill=rgb(0,0,0,0),color="black")
+t2 + scale_fill_gradient("$ in millions", low = low, high = high) 
 
 ## RUN ABOVE
 
