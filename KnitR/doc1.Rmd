@@ -1,3 +1,8 @@
+###RStudio config:
+```{r}
+sessionInfo()
+```
+
 1033 County Heat Map
 ====
 Building our county data:
