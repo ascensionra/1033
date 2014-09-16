@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E88537B6-BDBE-28FA-BE07-ECC349E5E9ED" name="TRANSACTIONS">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>TRANSACTIONS</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:36 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="04C3FC83-A05F-872B-A7C9-64B2187F1FF0">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>TRANSACTIONS</sourceObjSchema>
+<sourceObjName>ID</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="State" id="5FBC3CBC-D5E0-831F-F312-DE05AF2E4EF4">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>TRANSACTIONS</sourceObjSchema>
+<sourceObjName>State</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="County" id="61D84F04-C2C2-CF5A-499E-728893805585">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>TRANSACTIONS</sourceObjSchema>
+<sourceObjName>County</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NSN" id="9C83E4BD-B65E-C315-7703-0D668221E0EE">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>TRANSACTIONS</sourceObjSchema>
+<sourceObjName>NSN</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<delegate>E665A4B1-B39B-4A79-C3D0-714CB9E237C9</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="27E336BC-781D-6692-A9CD-77E9B37578D4" referredColumn="E665A4B1-B39B-4A79-C3D0-714CB9E237C9"/>
+</associations>
+</Column>
+<Column name="Quantity" id="D289B276-8CBE-704B-282D-E4690F6DC9FF">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>TRANSACTIONS</sourceObjSchema>
+<sourceObjName>Quantity</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ship_Date" id="7163F377-719F-6ED7-8249-005B0A43741D">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>TRANSACTIONS</sourceObjSchema>
+<sourceObjName>Ship_Date</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F8766A42-E9CA-5D7D-83FE-D16B8E5782A8" name="TRANSACTIONS_PK">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>SYS_C0010109</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04C3FC83-A05F-872B-A7C9-64B2187F1FF0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC9F3740-FED9-549F-4440-172C4E673C9C" name="TRANSACTIONS_INVENTORY_FK">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:14:35 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9C83E4BD-B65E-C315-7703-0D668221E0EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

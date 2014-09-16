@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TRANSACTIONS" directorySegmentName="seg_0" id="E88537B6-BDBE-28FA-BE07-ECC349E5E9ED">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:36 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>88A215E6-BBD6-B211-53B8-F31A873136D9</segment>
+<tableSpace>876FB850-D562-AEC8-0774-03E9E9DFB653</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ID" id="04C3FC83-A05F-872B-A7C9-64B2187F1FF0">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="State" id="5FBC3CBC-D5E0-831F-F312-DE05AF2E4EF4">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="County" id="61D84F04-C2C2-CF5A-499E-728893805585">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="Ship_Date" id="7163F377-719F-6ED7-8249-005B0A43741D">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="NSN" id="9C83E4BD-B65E-C315-7703-0D668221E0EE">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Quantity" id="D289B276-8CBE-704B-282D-E4690F6DC9FF">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:37 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="TRANSACTIONS_INVENTORY_FK" id="BC9F3740-FED9-549F-4440-172C4E673C9C">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:14:35 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TRANSACTIONS_PK" id="F8766A42-E9CA-5D7D-83FE-D16B8E5782A8">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 03:13:38 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<segment>9DB6EA2C-E55B-CA23-A921-CD8AC7255861</segment>
+<tableSpace>876FB850-D562-AEC8-0774-03E9E9DFB653</tableSpace>
+<indexSegment>9DB6EA2C-E55B-CA23-A921-CD8AC7255861</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
