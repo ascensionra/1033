@@ -5,6 +5,8 @@ library(RJDBC)
 library(maps)
 library(Formula)
 library(Hmisc)
+library(wordcloud)
+library(RColorBrewer)
 
 jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="C:/Program Files/Java/jdk1.8.0_20/ojdbc6.jar")
 
@@ -63,12 +65,13 @@ t + scale_fill_gradient("$ in millions", low = low, high = high)
 
 
 ###################COUNTY DATA#####################
-#USED THIS TO CAPITALIZE COUNTY DATA
-county$subregion <- toupper(county$subregion)
+
+
 
 #USED THIS TO BUILD A HISTOGRAM WEIGHTED DATA FRAME BY COUNTY
+merged$CST <- paste(merged$County,merged$State,sep=", ")
 h2 <- ggplot(data=merged) 
-h2 <- h2 + geom_histogram(aes(x=County, fill=..count.., weight=Quantity*Acquisition_Cost/1000000))
+h2 <- h2 + geom_histogram(aes(x=CST, fill=..count.., weight=Quantity*Acquisition_Cost/1000000))
 h2 + scale_fill_gradient("$ in millions", low = low, high = high)
 hg2 <- ggplot_build(h2)
 
@@ -78,23 +81,29 @@ cdata <- as.data.frame(hg2$data[1])
 #USED THIS TO ADD County COLUMN TO CDATA
 countyList <- merged
 attach(countyList)
-counties <- countyList[order(County),]
+counties <- countyList[order(CST),]
 detach(countyList)
-counties <- unique(counties$County)
+counties <- unique(counties$CST)
+cdata$CST <- counties
 
-cdata$County <- counties
+#USED THIS TO CAPITALIZE COUNTY DATA
+county$subregion <- toupper(county$subregion)
 
-#USED THIS TO RENAME subregion to County
-names(county)[names(county)=="subregion"] <- "County"
+#USED THIS TO CAPITALIZE THE STATES COLUMN FOR ABBREVIATION MAKING
+county$region <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", county$region, perl=TRUE)
+
+#USED THIS TO ABBREVIATE THE STATES COLUMN
+county$region <- state.abb[match(county$region,state.name)]
+
+county$CST <- paste(county$subregion,county$region,sep=", ")
 
 #USED THIS TO MERGE SDATA WITH STATES BY ABB
-comb <- merge(county,cdata,by="County")
+comb <- merge(county,cdata,by="CST")
 
 #USED THIS TO SORT BY ORDER FOR PROPER DRAWING
 attach(comb)
 scomb <- comb[order(order),]
 detach(comb)
-
 
 #USED THIS TO PLOT THE TEMP MAP
 t2<- ggplot()
@@ -103,10 +112,40 @@ t2<-t2+geom_polygon(data=scomb,aes(x=long,y=lat,group=group.x,fill=count),color=
 t2 <-t2 +geom_polygon(data=states,aes(x=long,y=lat,group=group),size=0.5,fill=rgb(0,0,0,0),color="black")
 t2 + scale_fill_gradient("$ in millions", low = low, high = high) 
 
-## RUN ABOVE
+# HEATMAP AND STATE AND COUNTY ABOVE
 
+# $ SPENT DATA FOR TOP COUNTIES BELOW
+topcounties <- subset(scomb,select=c(CST,subregion,region,count))
+attach(topcounties)
+tmp <- topcounties[order(-count),]
+detach(topcounties)
+topcounties <- tmp
+top10counties <- head(unique(topcounties),10)
 
+t10 <- ggplot(data=top10counties) 
+t10 <- t10 + geom_histogram(aes(x=CST, fill=..count.., weight=count))
+t10 + scale_fill_gradient("$ in millions", low = low, high = high)
 
+################CLASS NAME DATA ANALYSIS#################
+catData <- subset(merged,select=c(FEDERAL_SUPPLY_CATEGORY_NAME,Quantity,Acquisition_Cost))
+
+attach(catData);
+cats <- catData[order(FEDERAL_SUPPLY_CATEGORY_NAME),]
+detach(catData);
+cats <- unique(cats$FEDERAL_SUPPLY_CATEGORY_NAME);
+
+hcd <- ggplot(data=catData)
+hcd <- hcd + geom_histogram(aes(x=FEDERAL_SUPPLY_CATEGORY_NAME, fill=..count..,weight=Quantity*Acquisition_Cost))
+hcd + scale_fill_gradient("$ spent per category", low = low, high = high)
+catDataW <- as.data.frame(ggplot_build(hcd)$data[1])
+catDataW$FEDERAL_SUPPLY_CATEGORY_NAME <- cats
+
+catDataW$freq <- as.integer(catDataW$count)
+
+pal2=brewer.pal(8,"Dark2")
+
+wordcloud(catDataW$FEDERAL_SUPPLY_CATEGORY_NAME, catDataW$freq,scale=c(40,0.5), max.words=300, 
+          random.order=FALSE,random.color=TRUE, rot.per=0.35, colors=pal2)
 
 
 
