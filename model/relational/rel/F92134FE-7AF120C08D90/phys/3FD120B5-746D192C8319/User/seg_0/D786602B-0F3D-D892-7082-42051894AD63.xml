@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="C##CS347_JSM3287" directorySegmentName="seg_0" id="D786602B-0F3D-D892-7082-42051894AD63">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjName>C##CS347_JSM3287</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:42 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<privileges>CREATE VIEW, UNLIMITED TABLESPACE</privileges>
+<quotaItems>
+<QuotaItem class="oracle.dbtools.crest.model.design.storage.oracle.v10g.QuotaItemOraclev10g" name="QuotaItem1" id="F3BA27FF-1507-E889-5847-73E76E3B40A2">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:43 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</QuotaItem>
+</quotaItems>
+</UserOraclev10g>

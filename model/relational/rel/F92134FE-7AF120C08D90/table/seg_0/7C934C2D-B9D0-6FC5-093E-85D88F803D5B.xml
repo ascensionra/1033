@@ -88,12 +88,15 @@
 <createdBy>jared</createdBy>
 <createdTime>2014-09-16 03:13:26 UTC</createdTime>
 <ownerDesignName>relational</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>5 BYTE</dataTypeSize>
+<dataTypeSize>60 BYTE</dataTypeSize>
+<delegate>D5B80D71-8515-3FD3-696B-60DD4E321DBF</delegate>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="08D4EB80-B594-AB94-63A1-2223AB491171" referredColumn="D5B80D71-8515-3FD3-696B-60DD4E321DBF"/>
+</associations>
 </Column>
 <Column name="FEDERAL_SUPPLY_CATEGORY_NAME" id="56BC830E-7EF0-23A6-7266-88116EBF9965">
 <sourceConnName>cs378</sourceConnName>
@@ -165,6 +168,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="E665A4B1-B39B-4A79-C3D0-714CB9E237C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2AD4DCA2-D51A-9A96-C9DD-DD2C09426FFC" name="INVENTORY_ALIASES_FK">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:53:34 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9CA00D45-430E-14B9-D921-192791AE286C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

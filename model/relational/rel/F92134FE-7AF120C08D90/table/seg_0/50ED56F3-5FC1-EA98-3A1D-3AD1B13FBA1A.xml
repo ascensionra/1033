@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="50ED56F3-5FC1-EA98-3A1D-3AD1B13FBA1A" name="ALIASES">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>ALIASES</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:43 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FEDERAL_SUPPLY_CATEGORY" id="D5B80D71-8515-3FD3-696B-60DD4E321DBF">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>ALIASES</sourceObjSchema>
+<sourceObjName>FEDERAL_SUPPLY_CATEGORY</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:44 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ALIAS" id="3AE65CED-328C-010C-439A-D85DBDDA6E05">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>ALIASES</sourceObjSchema>
+<sourceObjName>ALIAS</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:44 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 BYTE</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E2132DB9-13F8-9470-C2ED-8C252B2B096F" name="ALIASES_PK">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>ALIASES_PK</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:45 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5B80D71-8515-3FD3-696B-60DD4E321DBF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="94FA1237-4280-E086-1BAB-2465DEDE5720" name="ALIASES_PK">
+<sourceConnName>cs378</sourceConnName>
+<sourceObjSchema>C##CS347_JSM3287</sourceObjSchema>
+<sourceObjName>ALIASES_PK</sourceObjName>
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:44 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5B80D71-8515-3FD3-696B-60DD4E321DBF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

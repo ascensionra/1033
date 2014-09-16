@@ -1,13 +1,14 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.storage.oracle.v12c.StorageDesignOraclev12c>
-   <object objectType="TSpace" objectID="876FB850-D562-AEC8-0774-03E9E9DFB653" name="USERS" seqName="seg_0"/>
-   <object objectType="User" objectID="1D15CD77-3657-CAF2-1DF2-24E233C23D06" name="C##CS347_JSM3287" seqName="seg_0"/>
+   <object objectType="TSpace" objectID="7450CFC5-3C2D-9BC3-BB50-5E22BF958D8B" name="USERS" seqName="seg_0"/>
+   <object objectType="User" objectID="D786602B-0F3D-D892-7082-42051894AD63" name="C##CS347_JSM3287" seqName="seg_0"/>
    <object objectType="User" objectID="MDSYS" name="MDSYS" seqName="seg_0"/>
    <object objectType="User" objectID="PUBLIC" name="PUBLIC" seqName="seg_0"/>
    <object objectType="SType" objectID="47E390DE-0671-C4B1-8428-0F45CBEE18F8" name="SDO_GEOMETRY" seqName="seg_0"/>
    <object objectType="SType" objectID="F72C39E0-D1CA-8821-2AD7-A1E95A37D3D1" name="XMLTYPE" seqName="seg_0"/>
+   <object objectType="Table" objectID="50ED56F3-5FC1-EA98-3A1D-3AD1B13FBA1A" name="ALIASES" seqName="seg_0"/>
    <object objectType="Table" objectID="7C934C2D-B9D0-6FC5-093E-85D88F803D5B" name="INVENTORY" seqName="seg_0"/>
    <object objectType="Table" objectID="E88537B6-BDBE-28FA-BE07-ECC349E5E9ED" name="TRANSACTIONS" seqName="seg_0"/>
-   <object objectType="Segment" objectID="88A215E6-BBD6-B211-53B8-F31A873136D9" name="Storage2" seqName="seg_0"/>
-   <object objectType="Segment" objectID="9DB6EA2C-E55B-CA23-A921-CD8AC7255861" name="Storage4" seqName="seg_0"/>
+   <object objectType="Segment" objectID="DE20D887-FCAB-AFE3-4BBF-8FB782985EB5" name="Storage2" seqName="seg_0"/>
+   <object objectType="Segment" objectID="F772D6CF-8C60-096D-86C3-E3AD8FB72E13" name="Storage4" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.storage.oracle.v12c.StorageDesignOraclev12c>

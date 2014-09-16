@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="ALIASES" directorySegmentName="seg_0" id="50ED56F3-5FC1-EA98-3A1D-3AD1B13FBA1A">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:43 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>DE20D887-FCAB-AFE3-4BBF-8FB782985EB5</segment>
+<tableSpace>7450CFC5-3C2D-9BC3-BB50-5E22BF958D8B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="ALIASES_PK" id="94FA1237-4280-E086-1BAB-2465DEDE5720">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:44 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<schemaObject>DCDF0F3D-3289-9FA0-6725-B78635D2B7AD</schemaObject>
+<segment>F772D6CF-8C60-096D-86C3-E3AD8FB72E13</segment>
+<tableSpace>7450CFC5-3C2D-9BC3-BB50-5E22BF958D8B</tableSpace>
+</IndexProxy>
+</indexProxies>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="ALIAS" id="3AE65CED-328C-010C-439A-D85DBDDA6E05">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:44 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FEDERAL_SUPPLY_CATEGORY" id="D5B80D71-8515-3FD3-696B-60DD4E321DBF">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:44 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ALIASES_PK" id="E2132DB9-13F8-9470-C2ED-8C252B2B096F">
+<createdBy>jared</createdBy>
+<createdTime>2014-09-16 05:51:46 UTC</createdTime>
+<ownerDesignName>relational</ownerDesignName>
+<segment>F772D6CF-8C60-096D-86C3-E3AD8FB72E13</segment>
+<tableSpace>7450CFC5-3C2D-9BC3-BB50-5E22BF958D8B</tableSpace>
+<existingIndex>94FA1237-4280-E086-1BAB-2465DEDE5720</existingIndex>
+<indexSegment>F772D6CF-8C60-096D-86C3-E3AD8FB72E13</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

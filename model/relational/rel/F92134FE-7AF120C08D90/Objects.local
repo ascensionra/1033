@@ -1,7 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
    <object objectType="SchemaObject" objectID="DCDF0F3D-3289-9FA0-6725-B78635D2B7AD" name="C##CS347_JSM3287" seqName="seg_0"/>
+   <object objectType="Table" objectID="50ED56F3-5FC1-EA98-3A1D-3AD1B13FBA1A" name="ALIASES" seqName="seg_0"/>
    <object objectType="Table" objectID="7C934C2D-B9D0-6FC5-093E-85D88F803D5B" name="INVENTORY" seqName="seg_0"/>
    <object objectType="Table" objectID="E88537B6-BDBE-28FA-BE07-ECC349E5E9ED" name="TRANSACTIONS" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="08D4EB80-B594-AB94-63A1-2223AB491171" name="INVENTORY_ALIASES_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="27E336BC-781D-6692-A9CD-77E9B37578D4" name="TRANSACTIONS_INVENTORY_FK" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>
