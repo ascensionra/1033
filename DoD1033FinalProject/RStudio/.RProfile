@@ -1,0 +1,2 @@
+library("gplots", lib.loc="~/R/x86_64-pc-linux-gnu-library/3.1")
+library("ggplot2", lib.loc="~/R/x86_64-pc-linux-gnu-library/3.1")
