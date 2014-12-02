@@ -1,0 +1,3263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WorkflowProcess Version="12.1.0.1.4" DBVersion="12.1.0.1.0" xmlns="http://xmlns.oracle.com/odmr11">
+    <Nodes>
+        <DataSource Id="10042" Name="INVENTORY" Status="Complete">
+            <Icon XCOORD="51" YCOORD="377"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10042" as (select /*+ inline */ "INVENTORY"."Acquisition_Cost", 
+"INVENTORY"."FEDERAL_SUPPLY_CATEGORY", 
+"INVENTORY"."FEDERAL_SUPPLY_CATEGORY_NAME", 
+"INVENTORY"."FEDERAL_SUPPLY_CLASS", 
+"INVENTORY"."FEDERAL_SUPPLY_CLASS_NAME", 
+"INVENTORY"."Item_Name", 
+"INVENTORY"."NSN", 
+"INVENTORY"."UI" 
+from "DS_DOD1033"."INVENTORY"  )</SQLExpression>
+            <Attributes>
+                <Attribute Name="Acquisition_Cost" DataType="FLOAT" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CATEGORY" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CATEGORY_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CLASS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CLASS_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="Item_Name" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="NSN" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="UI" DataType="VARCHAR2" Status="Valid"/>
+            </Attributes>
+            <SourceTable Schema="DS_DOD1033" Name="INVENTORY"/>
+        </DataSource>
+        <DataSource Id="10043" Name="TRANSACTIONS" Status="Complete">
+            <Icon XCOORD="57" YCOORD="473"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10043" as (select /*+ inline */ "TRANSACTIONS"."COUNTY", 
+"TRANSACTIONS"."ID", 
+"TRANSACTIONS"."NSN", 
+"TRANSACTIONS"."QUANTITY", 
+"TRANSACTIONS"."SHIP_DATE", 
+"TRANSACTIONS"."STATE", 
+"TRANSACTIONS"."FIPS" 
+from "DS_DOD1033"."TRANSACTIONS"  )</SQLExpression>
+            <Attributes>
+                <Attribute Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="ID" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NSN" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="QUANTITY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SHIP_DATE" DataType="DATE" Status="Valid"/>
+                <Attribute Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </Attributes>
+            <SourceTable Schema="DS_DOD1033" Name="TRANSACTIONS"/>
+        </DataSource>
+        <DataSource Id="10051" Name="FIPS1" Status="Complete">
+            <Icon XCOORD="171" YCOORD="236"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10051" as (select /*+ inline */ "FIPS"."FIPS", 
+"FIPS"."COUNTY", 
+"FIPS"."STATE", 
+"FIPS"."COUNTYFIPS", 
+"FIPS"."STATEFIPS" 
+from "DS_CRIME_RATES_COUNTY"."FIPS"  )</SQLExpression>
+            <Attributes>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+            </Attributes>
+            <SourceTable Schema="DS_CRIME_RATES_COUNTY" Name="FIPS"/>
+        </DataSource>
+        <DataSource Id="10176" Name="CRIME2010" Status="Complete">
+            <Icon XCOORD="-38" YCOORD="19"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10176" as (select /*+ inline */ "CRIME2010"."PART", 
+"CRIME2010"."GRNDTOT", 
+"CRIME2010"."WEAPONS", 
+"CRIME2010"."JURFLAG", 
+"CRIME2010"."P1TOT", 
+"CRIME2010"."FIPS_CTY", 
+"CRIME2010"."STLNPRP", 
+"CRIME2010"."ROBBERY", 
+"CRIME2010"."AGASSLT", 
+"CRIME2010"."DISORDR", 
+"CRIME2010"."OFAGFAM", 
+"CRIME2010"."GAMBLE", 
+"CRIME2010"."DRUNK", 
+"CRIME2010"."SUSPICN", 
+"CRIME2010"."CPOPARST", 
+"CRIME2010"."OTGAMBL", 
+"CRIME2010"."DRGSALE", 
+"CRIME2010"."SEXOFF", 
+"CRIME2010"."VAGRANT", 
+"CRIME2010"."DRUGTOT", 
+"CRIME2010"."STUDYNO", 
+"CRIME2010"."EDITION", 
+"CRIME2010"."NUMBERS", 
+"CRIME2010"."SYNPOSS", 
+"CRIME2010"."LIQUOR", 
+"CRIME2010"."FRGYCNT", 
+"CRIME2010"."OTHPOSS", 
+"CRIME2010"."DRGPOSS", 
+"CRIME2010"."COVIND", 
+"CRIME2010"."COCSALE", 
+"CRIME2010"."P1VLNT", 
+"CRIME2010"."DUI", 
+"CRIME2010"."FIPS_ST", 
+"CRIME2010"."P1PRPTY", 
+"CRIME2010"."RUNAWAY", 
+"CRIME2010"."FRAUD", 
+"CRIME2010"."EMBEZL", 
+"CRIME2010"."BOOKMKG", 
+"CRIME2010"."MVTHEFT", 
+"CRIME2010"."BURGLRY", 
+"CRIME2010"."AG_ARRST", 
+"CRIME2010"."MJPOSS", 
+"CRIME2010"."ALLOTHR", 
+"CRIME2010"."LARCENY", 
+"CRIME2010"."COMVICE", 
+"CRIME2010"."IDNO", 
+"CRIME2010"."VANDLSM", 
+"CRIME2010"."CURFEW", 
+"CRIME2010"."MJSALE", 
+"CRIME2010"."RAPE", 
+"CRIME2010"."COCPOSS", 
+"CRIME2010"."ARSON", 
+"CRIME2010"."SYNSALE", 
+"CRIME2010"."OTHSALE", 
+"CRIME2010"."OTHASLT", 
+"CRIME2010"."MURDER" 
+from "DS_CRIME_RATES_COUNTY"."CRIME2010"  )</SQLExpression>
+            <Attributes>
+                <Attribute Name="PART" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GRNDTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="WEAPONS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="JURFLAG" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1TOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FIPS_CTY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STLNPRP" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ROBBERY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AGASSLT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DISORDR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OFAGFAM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GAMBLE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRUNK" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SUSPICN" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="CPOPARST" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTGAMBL" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SEXOFF" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="VAGRANT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STUDYNO" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="EDITION" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NUMBERS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SYNPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="LIQUOR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FRGYCNT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COVIND" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COCSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1VLNT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DUI" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FIPS_ST" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1PRPTY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="RUNAWAY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FRAUD" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="EMBEZL" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BOOKMKG" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MVTHEFT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BURGLRY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AG_ARRST" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MJPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ALLOTHR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="LARCENY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COMVICE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="IDNO" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="VANDLSM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="CURFEW" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MJSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="RAPE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COCPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ARSON" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SYNSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHASLT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MURDER" DataType="NUMBER" Status="Valid"/>
+            </Attributes>
+            <SourceTable Schema="DS_CRIME_RATES_COUNTY" Name="CRIME2010"/>
+        </DataSource>
+        <DataSource Id="10180" Name="POPULATION" Status="Complete">
+            <Icon XCOORD="-97" YCOORD="-132"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10180" as (select /*+ inline */ "POPULATION"."HAA_MALE", 
+"POPULATION"."HBAC_MALE", 
+"POPULATION"."NHBA_FEMALE", 
+"POPULATION"."NHBAC_FEMALE", 
+"POPULATION"."BAC_FEMALE", 
+"POPULATION"."TOM_FEMALE", 
+"POPULATION"."STNAME", 
+"POPULATION"."YEAR", 
+"POPULATION"."HNAC_FEMALE", 
+"POPULATION"."HTOM_FEMALE", 
+"POPULATION"."HNA_FEMALE", 
+"POPULATION"."SUMLEV", 
+"POPULATION"."HNAC_MALE", 
+"POPULATION"."BAC_MALE", 
+"POPULATION"."HIA_FEMALE", 
+"POPULATION"."HIAC_MALE", 
+"POPULATION"."AAC_FEMALE", 
+"POPULATION"."HAAC_FEMALE", 
+"POPULATION"."NHNAC_MALE", 
+"POPULATION"."CTYNAME", 
+"POPULATION"."NHNAC_FEMALE", 
+"POPULATION"."AA_FEMALE", 
+"POPULATION"."NHIA_MALE", 
+"POPULATION"."NHAAC_MALE", 
+"POPULATION"."NHBAC_MALE", 
+"POPULATION"."NHIA_FEMALE", 
+"POPULATION"."HIAC_FEMALE", 
+"POPULATION"."HBA_MALE", 
+"POPULATION"."TOT_POP", 
+"POPULATION"."NHWAC_FEMALE", 
+"POPULATION"."NHTOM_MALE", 
+"POPULATION"."NHWA_MALE", 
+"POPULATION"."HIA_MALE", 
+"POPULATION"."NA_FEMALE", 
+"POPULATION"."HWA_MALE", 
+"POPULATION"."AA_MALE", 
+"POPULATION"."WAC_MALE", 
+"POPULATION"."WA_FEMALE", 
+"POPULATION"."NHNA_FEMALE", 
+"POPULATION"."NA_MALE", 
+"POPULATION"."HWAC_FEMALE", 
+"POPULATION"."NHNA_MALE", 
+"POPULATION"."STATE", 
+"POPULATION"."HAAC_MALE", 
+"POPULATION"."NHAA_MALE", 
+"POPULATION"."HBAC_FEMALE", 
+"POPULATION"."H_MALE", 
+"POPULATION"."NHAAC_FEMALE", 
+"POPULATION"."AGEGRP", 
+"POPULATION"."NHIAC_MALE", 
+"POPULATION"."WA_MALE", 
+"POPULATION"."COUNTY", 
+"POPULATION"."HAA_FEMALE", 
+"POPULATION"."BA_FEMALE", 
+"POPULATION"."HTOM_MALE", 
+"POPULATION"."NAC_FEMALE", 
+"POPULATION"."IA_FEMALE", 
+"POPULATION"."IAC_FEMALE", 
+"POPULATION"."NH_MALE", 
+"POPULATION"."NHAA_FEMALE", 
+"POPULATION"."HNA_MALE", 
+"POPULATION"."NHIAC_FEMALE", 
+"POPULATION"."IA_MALE", 
+"POPULATION"."BA_MALE", 
+"POPULATION"."NH_FEMALE", 
+"POPULATION"."TOT_FEMALE", 
+"POPULATION"."NHWA_FEMALE", 
+"POPULATION"."NHTOM_FEMALE", 
+"POPULATION"."TOM_MALE", 
+"POPULATION"."AAC_MALE", 
+"POPULATION"."NHBA_MALE", 
+"POPULATION"."WAC_FEMALE", 
+"POPULATION"."NAC_MALE", 
+"POPULATION"."IAC_MALE", 
+"POPULATION"."H_FEMALE", 
+"POPULATION"."HBA_FEMALE", 
+"POPULATION"."HWA_FEMALE", 
+"POPULATION"."HWAC_MALE", 
+"POPULATION"."TOT_MALE", 
+"POPULATION"."NHWAC_MALE" 
+from "DS_CENSUS_COUNTY"."POPULATION"  )</SQLExpression>
+            <Attributes>
+                <Attribute Name="HAA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HBAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHBA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHBAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="TOM_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STNAME" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="YEAR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HNAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HTOM_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HNA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SUMLEV" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HNAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HIA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HIAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HAAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHNAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="CTYNAME" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="NHNAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHIA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHAAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHBAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHIA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HIAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HBA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="TOT_POP" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHWAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHTOM_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHWA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HIA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HWA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="WAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="WA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHNA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HWAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHNA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STATE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HAAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHAA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HBAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="H_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHAAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AGEGRP" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHIAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="WA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COUNTY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HAA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HTOM_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="IA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="IAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NH_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHAA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HNA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHIAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="IA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NH_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="TOT_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHWA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHTOM_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="TOM_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHBA_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="WAC_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="IAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="H_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HBA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HWA_FEMALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="HWAC_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="TOT_MALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NHWAC_MALE" DataType="NUMBER" Status="Valid"/>
+            </Attributes>
+            <SourceTable Schema="DS_CENSUS_COUNTY" Name="POPULATION"/>
+        </DataSource>
+        <Aggregation Id="10134" Name="FundsByCounty" Status="Complete">
+            <Icon XCOORD="306" YCOORD="111"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10134" as (SELECT  t0."FIPS",  t0."COUNTY",  t0."STATE", 
+ t0."TRANSACTION_COST_SUM"
+FROM
+  (SELECT  "FIPS","COUNTY","STATE", 
+    SUM("TRANSACTION_COST") "TRANSACTION_COST_SUM"
+  FROM {INPUT_SOURCE}
+   
+  GROUP BY "FIPS","COUNTY","STATE") t0
+ )</SQLExpression>
+            <AggregationElements>
+                <AggregationElement>
+                    <Source>
+                        <Attributes>
+                            <Attribute Name="TRANSACTION_COST" DataType="NUMBER" Status="Valid"/>
+                        </Attributes>
+                    </Source>
+                    <Output Name="TRANSACTION_COST_SUM" DataType="NUMBER" Status="Valid"/>
+                    <AggregationFunction>SUM()</AggregationFunction>
+                    <SubGroupBy>
+                        <Attributes/>
+                    </SubGroupBy>
+                </AggregationElement>
+            </AggregationElements>
+            <GroupingElement>
+                <Attributes>
+                    <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                    <Attribute Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                    <Attribute Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                </Attributes>
+            </GroupingElement>
+            <AutoSpec>Yes</AutoSpec>
+        </Aggregation>
+        <Aggregation Id="10184" Name="Aggregate" Status="Complete">
+            <Icon XCOORD="21" YCOORD="-300"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10184" as (SELECT  t0."COUNTY",  t0."STATE", 
+ t0."TOT_POP_SUM"
+FROM
+  (SELECT  "COUNTY","STATE", 
+    SUM("TOT_POP") "TOT_POP_SUM"
+  FROM {INPUT_SOURCE}
+   
+  GROUP BY "COUNTY","STATE") t0
+ )</SQLExpression>
+            <AggregationElements>
+                <AggregationElement>
+                    <Source>
+                        <Attributes>
+                            <Attribute Name="TOT_POP" DataType="NUMBER" Status="Valid"/>
+                        </Attributes>
+                    </Source>
+                    <Output Name="TOT_POP_SUM" DataType="NUMBER" Status="Valid"/>
+                    <AggregationFunction>SUM()</AggregationFunction>
+                    <SubGroupBy>
+                        <Attributes/>
+                    </SubGroupBy>
+                </AggregationElement>
+            </AggregationElements>
+            <GroupingElement>
+                <Attributes>
+                    <Attribute Name="COUNTY" DataType="NUMBER" Status="Valid"/>
+                    <Attribute Name="STATE" DataType="NUMBER" Status="Valid"/>
+                </Attributes>
+            </GroupingElement>
+            <AutoSpec>Yes</AutoSpec>
+        </Aggregation>
+        <Join UseCartesian="false" Id="10044" Name="Join 2" Status="Complete">
+            <Icon XCOORD="186" YCOORD="416"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10044" as (SELECT /*+ inline */
+"INVENTORY"."FEDERAL_SUPPLY_CATEGORY_NAME"
+, "INVENTORY"."FEDERAL_SUPPLY_CATEGORY"
+, "INVENTORY"."NSN"
+, "INVENTORY"."UI"
+, "INVENTORY"."Acquisition_Cost"
+, "INVENTORY"."FEDERAL_SUPPLY_CLASS_NAME"
+, "INVENTORY"."Item_Name"
+, "INVENTORY"."FEDERAL_SUPPLY_CLASS"
+, "TRANSACTIONS"."COUNTY"
+, "TRANSACTIONS"."STATE"
+, "TRANSACTIONS"."ID"
+, "TRANSACTIONS"."SHIP_DATE"
+, "TRANSACTIONS"."QUANTITY"
+, "TRANSACTIONS"."FIPS"
+
+FROM
+{INPUT_SOURCE:10042} "INVENTORY"
+
+INNER JOIN {INPUT_SOURCE:10043} "TRANSACTIONS"
+ON "INVENTORY"."NSN" = "TRANSACTIONS"."NSN"
+ )</SQLExpression>
+            <KeyColumns AutoSpec="No">
+                <JoinColumn Type="Inner">
+                    <LeftColumn NodeId="10042" NodeName="INVENTORY" Key="Yes" Name="NSN" DataType="VARCHAR2" Status="Valid"/>
+                    <RightColumn NodeId="10043" NodeName="TRANSACTIONS" Key="Yes" Name="NSN" DataType="VARCHAR2" Status="Valid"/>
+                </JoinColumn>
+            </KeyColumns>
+            <OutputColumns AutoSpec="No">
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="FEDERAL_SUPPLY_CATEGORY_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="FEDERAL_SUPPLY_CATEGORY" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="NSN" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="UI" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="Acquisition_Cost" DataType="FLOAT" Status="Valid"/>
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="FEDERAL_SUPPLY_CLASS_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="Item_Name" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10042" NodeName="INVENTORY" Name="FEDERAL_SUPPLY_CLASS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10043" NodeName="TRANSACTIONS" Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10043" NodeName="TRANSACTIONS" Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10043" NodeName="TRANSACTIONS" Name="ID" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10043" NodeName="TRANSACTIONS" Name="SHIP_DATE" DataType="DATE" Status="Valid"/>
+                <RefDBColumn NodeId="10043" NodeName="TRANSACTIONS" Name="QUANTITY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10043" NodeName="TRANSACTIONS" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </OutputColumns>
+        </Join>
+        <Join UseCartesian="false" Id="10060" Name="DODGood" Status="Complete">
+            <Icon XCOORD="270" YCOORD="322"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10060" as (SELECT /*+ inline */
+"FIPS1"."FIPS"
+, "FIPS1"."COUNTY"
+, "FIPS1"."STATE"
+, "FIPS1"."COUNTYFIPS"
+, "FIPS1"."STATEFIPS"
+, "Join 2"."FEDERAL_SUPPLY_CATEGORY_NAME"
+, "Join 2"."FEDERAL_SUPPLY_CATEGORY"
+, "Join 2"."NSN"
+, "Join 2"."UI"
+, "Join 2"."Acquisition_Cost"
+, "Join 2"."FEDERAL_SUPPLY_CLASS_NAME"
+, "Join 2"."Item_Name"
+, "Join 2"."FEDERAL_SUPPLY_CLASS"
+, "Join 2"."ID"
+, "Join 2"."SHIP_DATE"
+, "Join 2"."QUANTITY"
+
+FROM
+{INPUT_SOURCE:10051} "FIPS1"
+
+INNER JOIN {INPUT_SOURCE:10044} "Join 2"
+ON "FIPS1"."FIPS" = "Join 2"."FIPS"
+ )</SQLExpression>
+            <KeyColumns AutoSpec="No">
+                <JoinColumn Type="Inner">
+                    <LeftColumn NodeId="10051" NodeName="FIPS1" Key="Yes" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                    <RightColumn NodeId="10044" NodeName="Join 2" Key="Yes" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                </JoinColumn>
+            </KeyColumns>
+            <OutputColumns AutoSpec="No">
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="FEDERAL_SUPPLY_CATEGORY_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="FEDERAL_SUPPLY_CATEGORY" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="NSN" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="UI" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="Acquisition_Cost" DataType="FLOAT" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="FEDERAL_SUPPLY_CLASS_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="Item_Name" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="FEDERAL_SUPPLY_CLASS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="ID" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="SHIP_DATE" DataType="DATE" Status="Valid"/>
+                <RefDBColumn NodeId="10044" NodeName="Join 2" Name="QUANTITY" DataType="NUMBER" Status="Valid"/>
+            </OutputColumns>
+        </Join>
+        <Join UseCartesian="false" Id="10137" Name="Crime2011Good" Status="Complete">
+            <Icon XCOORD="139" YCOORD="38"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10137" as (SELECT /*+ inline */
+"FIPS1"."FIPS"
+, "FIPS1"."COUNTY"
+, "FIPS1"."STATE"
+, "FIPS1"."COUNTYFIPS"
+, "FIPS1"."STATEFIPS"
+, "CRIME2010"."PART"
+, "CRIME2010"."GRNDTOT"
+, "CRIME2010"."WEAPONS"
+, "CRIME2010"."JURFLAG"
+, "CRIME2010"."P1TOT"
+, "CRIME2010"."STLNPRP"
+, "CRIME2010"."ROBBERY"
+, "CRIME2010"."AGASSLT"
+, "CRIME2010"."DISORDR"
+, "CRIME2010"."OFAGFAM"
+, "CRIME2010"."GAMBLE"
+, "CRIME2010"."DRUNK"
+, "CRIME2010"."SUSPICN"
+, "CRIME2010"."CPOPARST"
+, "CRIME2010"."OTGAMBL"
+, "CRIME2010"."DRGSALE"
+, "CRIME2010"."SEXOFF"
+, "CRIME2010"."VAGRANT"
+, "CRIME2010"."DRUGTOT"
+, "CRIME2010"."STUDYNO"
+, "CRIME2010"."EDITION"
+, "CRIME2010"."NUMBERS"
+, "CRIME2010"."SYNPOSS"
+, "CRIME2010"."LIQUOR"
+, "CRIME2010"."FRGYCNT"
+, "CRIME2010"."OTHPOSS"
+, "CRIME2010"."DRGPOSS"
+, "CRIME2010"."COVIND"
+, "CRIME2010"."COCSALE"
+, "CRIME2010"."P1VLNT"
+, "CRIME2010"."DUI"
+, "CRIME2010"."P1PRPTY"
+, "CRIME2010"."RUNAWAY"
+, "CRIME2010"."FRAUD"
+, "CRIME2010"."EMBEZL"
+, "CRIME2010"."BOOKMKG"
+, "CRIME2010"."MVTHEFT"
+, "CRIME2010"."BURGLRY"
+, "CRIME2010"."AG_ARRST"
+, "CRIME2010"."MJPOSS"
+, "CRIME2010"."ALLOTHR"
+, "CRIME2010"."LARCENY"
+, "CRIME2010"."COMVICE"
+, "CRIME2010"."IDNO"
+, "CRIME2010"."VANDLSM"
+, "CRIME2010"."CURFEW"
+, "CRIME2010"."MJSALE"
+, "CRIME2010"."RAPE"
+, "CRIME2010"."COCPOSS"
+, "CRIME2010"."ARSON"
+, "CRIME2010"."SYNSALE"
+, "CRIME2010"."OTHSALE"
+, "CRIME2010"."OTHASLT"
+, "CRIME2010"."MURDER"
+
+FROM
+{INPUT_SOURCE:10176} "CRIME2010"
+
+INNER JOIN {INPUT_SOURCE:10051} "FIPS1"
+ON "CRIME2010"."FIPS_CTY" = "FIPS1"."COUNTYFIPS"
+AND "FIPS1"."STATEFIPS" = "CRIME2010"."FIPS_ST"
+ )</SQLExpression>
+            <KeyColumns AutoSpec="No">
+                <JoinColumn Type="Inner">
+                    <LeftColumn NodeId="10176" NodeName="CRIME2010" Key="Yes" Name="FIPS_CTY" DataType="NUMBER" Status="Valid"/>
+                    <RightColumn NodeId="10051" NodeName="FIPS1" Key="Yes" Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                </JoinColumn>
+                <JoinColumn Type="Inner">
+                    <LeftColumn NodeId="10176" NodeName="CRIME2010" Key="Yes" Name="FIPS_ST" DataType="NUMBER" Status="Valid"/>
+                    <RightColumn NodeId="10051" NodeName="FIPS1" Key="Yes" Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                </JoinColumn>
+            </KeyColumns>
+            <OutputColumns AutoSpec="No">
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10051" NodeName="FIPS1" Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="PART" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="GRNDTOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="WEAPONS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="JURFLAG" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="P1TOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="STLNPRP" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="ROBBERY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="AGASSLT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="DISORDR" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="OFAGFAM" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="GAMBLE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="DRUNK" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="SUSPICN" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="CPOPARST" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="OTGAMBL" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="DRGSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="SEXOFF" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="VAGRANT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="STUDYNO" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="EDITION" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="NUMBERS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="SYNPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="LIQUOR" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="FRGYCNT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="OTHPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="DRGPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="COVIND" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="COCSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="P1VLNT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="DUI" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="P1PRPTY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="RUNAWAY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="FRAUD" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="EMBEZL" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="BOOKMKG" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="MVTHEFT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="BURGLRY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="AG_ARRST" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="MJPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="ALLOTHR" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="LARCENY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="COMVICE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="IDNO" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="VANDLSM" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="CURFEW" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="MJSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="RAPE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="COCPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="ARSON" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="SYNSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="OTHSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="OTHASLT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10176" NodeName="CRIME2010" Name="MURDER" DataType="NUMBER" Status="Valid"/>
+            </OutputColumns>
+        </Join>
+        <Join UseCartesian="false" Id="10140" Name="CrimeDoDByCounty" Status="Complete">
+            <Icon XCOORD="290" YCOORD="-42"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10140" as (SELECT /*+ inline */
+"FundsByCounty"."FIPS"
+, "FundsByCounty"."COUNTY"
+, "FundsByCounty"."STATE"
+, "FundsByCounty"."TRANSACTION_COST_SUM"
+, "Filter Rows"."PART"
+, "Filter Rows"."GRNDTOT"
+, "Filter Rows"."WEAPONS"
+, "Filter Rows"."JURFLAG"
+, "Filter Rows"."P1TOT"
+, "Filter Rows"."STLNPRP"
+, "Filter Rows"."ROBBERY"
+, "Filter Rows"."AGASSLT"
+, "Filter Rows"."DISORDR"
+, "Filter Rows"."OFAGFAM"
+, "Filter Rows"."GAMBLE"
+, "Filter Rows"."DRUNK"
+, "Filter Rows"."SUSPICN"
+, "Filter Rows"."CPOPARST"
+, "Filter Rows"."OTGAMBL"
+, "Filter Rows"."DRGSALE"
+, "Filter Rows"."SEXOFF"
+, "Filter Rows"."VAGRANT"
+, "Filter Rows"."DRUGTOT"
+, "Filter Rows"."STUDYNO"
+, "Filter Rows"."EDITION"
+, "Filter Rows"."NUMBERS"
+, "Filter Rows"."SYNPOSS"
+, "Filter Rows"."LIQUOR"
+, "Filter Rows"."FRGYCNT"
+, "Filter Rows"."OTHPOSS"
+, "Filter Rows"."DRGPOSS"
+, "Filter Rows"."COVIND"
+, "Filter Rows"."COCSALE"
+, "Filter Rows"."P1VLNT"
+, "Filter Rows"."DUI"
+, "Filter Rows"."P1PRPTY"
+, "Filter Rows"."RUNAWAY"
+, "Filter Rows"."FRAUD"
+, "Filter Rows"."EMBEZL"
+, "Filter Rows"."BOOKMKG"
+, "Filter Rows"."MVTHEFT"
+, "Filter Rows"."BURGLRY"
+, "Filter Rows"."AG_ARRST"
+, "Filter Rows"."MJPOSS"
+, "Filter Rows"."ALLOTHR"
+, "Filter Rows"."LARCENY"
+, "Filter Rows"."COMVICE"
+, "Filter Rows"."IDNO"
+, "Filter Rows"."VANDLSM"
+, "Filter Rows"."CURFEW"
+, "Filter Rows"."MJSALE"
+, "Filter Rows"."RAPE"
+, "Filter Rows"."COCPOSS"
+, "Filter Rows"."ARSON"
+, "Filter Rows"."SYNSALE"
+, "Filter Rows"."OTHSALE"
+, "Filter Rows"."OTHASLT"
+, "Filter Rows"."MURDER"
+, "Filter Rows"."STATEFIPS"
+, "Filter Rows"."COUNTYFIPS"
+
+FROM
+{INPUT_SOURCE:10134} "FundsByCounty"
+
+INNER JOIN {INPUT_SOURCE:10171} "Filter Rows"
+ON "FundsByCounty"."FIPS" = "Filter Rows"."FIPS"
+ )</SQLExpression>
+            <KeyColumns AutoSpec="No">
+                <JoinColumn Type="Inner">
+                    <LeftColumn NodeId="10134" NodeName="FundsByCounty" Key="Yes" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                    <RightColumn NodeId="10171" NodeName="Filter Rows" Key="Yes" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                </JoinColumn>
+            </KeyColumns>
+            <OutputColumns AutoSpec="No">
+                <RefDBColumn NodeId="10134" NodeName="FundsByCounty" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10134" NodeName="FundsByCounty" Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10134" NodeName="FundsByCounty" Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10134" NodeName="FundsByCounty" Name="TRANSACTION_COST_SUM" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="PART" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="GRNDTOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="WEAPONS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="JURFLAG" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="P1TOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="STLNPRP" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="ROBBERY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="AGASSLT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="DISORDR" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="OFAGFAM" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="GAMBLE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="DRUNK" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="SUSPICN" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="CPOPARST" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="OTGAMBL" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="DRGSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="SEXOFF" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="VAGRANT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="STUDYNO" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="EDITION" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="NUMBERS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="SYNPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="LIQUOR" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="FRGYCNT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="OTHPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="DRGPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="COVIND" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="COCSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="P1VLNT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="DUI" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="P1PRPTY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="RUNAWAY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="FRAUD" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="EMBEZL" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="BOOKMKG" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="MVTHEFT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="BURGLRY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="AG_ARRST" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="MJPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="ALLOTHR" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="LARCENY" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="COMVICE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="IDNO" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="VANDLSM" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="CURFEW" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="MJSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="RAPE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="COCPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="ARSON" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="SYNSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="OTHSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="OTHASLT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="MURDER" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10171" NodeName="Filter Rows" Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+            </OutputColumns>
+        </Join>
+        <Join UseCartesian="false" Id="10188" Name="Join" Status="Complete">
+            <Icon XCOORD="178" YCOORD="-257"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10188" as (SELECT /*+ inline */
+"SQL Query 1"."COST_GROUP"
+, "SQL Query 1"."DRGPOSS"
+, "SQL Query 1"."DRGSALE"
+, "SQL Query 1"."DRUGTOT"
+, "SQL Query 1"."GRNDTOT"
+, "SQL Query 1"."FIPS"
+, "SQL Query 1"."COUNTYFIPS"
+, "SQL Query 1"."STATEFIPS"
+, "Aggregate"."TOT_POP_SUM"
+
+FROM
+{INPUT_SOURCE:10160} "SQL Query 1"
+
+INNER JOIN {INPUT_SOURCE:10184} "Aggregate"
+ON "SQL Query 1"."COUNTYFIPS" = "Aggregate"."COUNTY"
+AND "Aggregate"."STATE" = "SQL Query 1"."STATEFIPS"
+ )</SQLExpression>
+            <KeyColumns AutoSpec="No">
+                <JoinColumn Type="Inner">
+                    <LeftColumn NodeId="10160" NodeName="SQL Query 1" Key="Yes" Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                    <RightColumn NodeId="10184" NodeName="Aggregate" Key="Yes" Name="COUNTY" DataType="NUMBER" Status="Valid"/>
+                </JoinColumn>
+                <JoinColumn Type="Inner">
+                    <LeftColumn NodeId="10160" NodeName="SQL Query 1" Key="Yes" Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                    <RightColumn NodeId="10184" NodeName="Aggregate" Key="Yes" Name="STATE" DataType="NUMBER" Status="Valid"/>
+                </JoinColumn>
+            </KeyColumns>
+            <OutputColumns AutoSpec="No">
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="DRGPOSS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="DRGSALE" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="GRNDTOT" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10160" NodeName="SQL Query 1" Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                <RefDBColumn NodeId="10184" NodeName="Aggregate" Name="TOT_POP_SUM" DataType="NUMBER" Status="Valid"/>
+            </OutputColumns>
+        </Join>
+        <RowFilter Id="10171" Name="Filter Rows" Status="Complete">
+            <Icon XCOORD="206" YCOORD="-84"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"N$10171" as (SELECT /*+ inline */
+"FIPS"
+, "COUNTY"
+, "STATE"
+, "COUNTYFIPS"
+, "STATEFIPS"
+, "PART"
+, "GRNDTOT"
+, "WEAPONS"
+, "JURFLAG"
+, "P1TOT"
+, "STLNPRP"
+, "ROBBERY"
+, "AGASSLT"
+, "DISORDR"
+, "OFAGFAM"
+, "GAMBLE"
+, "DRUNK"
+, "SUSPICN"
+, "CPOPARST"
+, "OTGAMBL"
+, "DRGSALE"
+, "SEXOFF"
+, "VAGRANT"
+, "DRUGTOT"
+, "STUDYNO"
+, "EDITION"
+, "NUMBERS"
+, "SYNPOSS"
+, "LIQUOR"
+, "FRGYCNT"
+, "OTHPOSS"
+, "DRGPOSS"
+, "COVIND"
+, "COCSALE"
+, "P1VLNT"
+, "DUI"
+, "P1PRPTY"
+, "RUNAWAY"
+, "FRAUD"
+, "EMBEZL"
+, "BOOKMKG"
+, "MVTHEFT"
+, "BURGLRY"
+, "AG_ARRST"
+, "MJPOSS"
+, "ALLOTHR"
+, "LARCENY"
+, "COMVICE"
+, "IDNO"
+, "VANDLSM"
+, "CURFEW"
+, "MJSALE"
+, "RAPE"
+, "COCPOSS"
+, "ARSON"
+, "SYNSALE"
+, "OTHSALE"
+, "OTHASLT"
+, "MURDER"
+
+FROM
+{INPUT_SOURCE}
+WHERE
+"STATE" != 'Florida' AND "STATE" != 'Vermont' 
+AND "STATE" != 'Illinois'
+AND "GRNDTOT" &gt; 0 )</SQLExpression>
+            <OutputColumns>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="PART" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GRNDTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="WEAPONS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="JURFLAG" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1TOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STLNPRP" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ROBBERY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AGASSLT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DISORDR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OFAGFAM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GAMBLE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRUNK" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SUSPICN" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="CPOPARST" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTGAMBL" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SEXOFF" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="VAGRANT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STUDYNO" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="EDITION" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NUMBERS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SYNPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="LIQUOR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FRGYCNT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COVIND" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COCSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1VLNT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DUI" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1PRPTY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="RUNAWAY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FRAUD" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="EMBEZL" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BOOKMKG" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MVTHEFT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BURGLRY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AG_ARRST" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MJPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ALLOTHR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="LARCENY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COMVICE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="IDNO" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="VANDLSM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="CURFEW" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MJSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="RAPE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COCPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ARSON" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SYNSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHASLT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MURDER" DataType="NUMBER" Status="Valid"/>
+            </OutputColumns>
+            <Filter>"STATE" != 'Florida' AND "STATE" != 'Vermont' 
+AND "STATE" != 'Illinois'
+AND "GRNDTOT" &gt; 0</Filter>
+        </RowFilter>
+        <ClassificationBuild Id="10197" Name="Class Build 1" Status="Complete">
+            <Icon XCOORD="167" YCOORD="-466"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <BuildDataSource SourceId="10191"/>
+            <CaseAttributes>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </CaseAttributes>
+            <MiningAttributes AutoSpec="Yes">
+                <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="DRGTOTRATE" DataType="NUMBER" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </MiningAttributes>
+            <Stoplists>
+                <Stoplist Id="1" Name="Default" Type="Basic" Language="ENGLISH" DBName="">
+                    <StopTokens>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mr</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mrs</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Ms</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>a</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>all</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>almost</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>also</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>although</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>an</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>and</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>any</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>are</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>as</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>at</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>be</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>because</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>been</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>both</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>but</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>by</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>can</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>could</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>d</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>did</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>do</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>does</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>either</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>for</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>from</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>had</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>has</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>have</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>having</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>he</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>her</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>here</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>hers</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>him</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>his</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>how</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>however</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>i</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>if</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>in</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>into</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>is</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>it</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>its</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>just</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ll</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>me</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>might</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>my</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>no</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>non</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>nor</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>not</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>of</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>on</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>one</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>only</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>onto</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>or</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>our</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ours</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>s</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>shall</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>she</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>should</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>since</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>so</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>some</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>still</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>such</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>t</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>than</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>that</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>the</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>their</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>them</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>then</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>there</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>therefore</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>these</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>they</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>this</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>those</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>though</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>through</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>thus</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>to</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>too</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>until</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ve</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>very</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>was</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>we</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>were</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>what</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>when</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>where</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whether</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>which</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>while</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>who</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whose</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>why</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>will</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>with</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>would</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yet</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>you</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>your</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yours</Item>
+                        </Token>
+                    </StopTokens>
+                </Stoplist>
+            </Stoplists>
+            <TextSettings TransformType="Token" CategoricalCutOffValue="200">
+                <Token>
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Name="" Type="Basic">
+                            <Settings/>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Token>
+                <Theme Type="Single">
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Type="Basic">
+                            <Settings>
+                                <Attribute Name="index_themes" ValueString="YES" Type="String"/>
+                                <Attribute Name="theme_language" ValueString="ENGLISH" Type="String"/>
+                            </Settings>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Theme>
+            </TextSettings>
+            <TextAttributes/>
+            <HeuristicSummaryResult StatisticTable="ODMR$22_22_23_934000MVRVQFD">
+                <Attribute Name="FIPS">
+                    <Reason Type="INPUT_NONE"/>
+                </Attribute>
+            </HeuristicSummaryResult>
+            <TestDataSource>
+                <SplitData TestPercent="50.0" DataFormat="Table"/>
+            </TestDataSource>
+            <TargetAttribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+            <Models>
+                <DecisionTreeModel Id="10194" Name="CLAS_DT_2_117" Status="Complete" CreationDate="2014-11-19T22:22:35" Annotation="" UseForOutput="true">
+                    <InputMiningData DataUsage="AUTO" MiningUsage="AUTO">
+                        <MiningAttributes>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="DRGTOTRATE" DataType="NUMBER" Status="Valid"/>
+                        </MiningAttributes>
+                        <HeuristicResult StatisticTable="ODMR$22_22_23_934000MVRVQFD"/>
+                    </InputMiningData>
+                    <Performance>
+                        <Balanced WeightsTable="ODMR$22_22_27_834000NOMYXNT"/>
+                    </Performance>
+                    <Tuning>
+                        <None/>
+                    </Tuning>
+                    <DecisionTreeAlgo>
+                        <TREE_IMPURITY_METRIC>TREE_IMPURITY_GINI</TREE_IMPURITY_METRIC>
+                        <TREE_TERM_MAX_DEPTH>7</TREE_TERM_MAX_DEPTH>
+                        <TREE_TERM_MINPCT_NODE>0.05</TREE_TERM_MINPCT_NODE>
+                        <TREE_TERM_MINPCT_SPLIT>0.1</TREE_TERM_MINPCT_SPLIT>
+                        <TREE_TERM_MINREC_NODE>10</TREE_TERM_MINREC_NODE>
+                        <TREE_TERM_MINREC_SPLIT>20</TREE_TERM_MINREC_SPLIT>
+                    </DecisionTreeAlgo>
+                </DecisionTreeModel>
+            </Models>
+            <TestSettings>
+                <TopNTargets Value="5"/>
+            </TestSettings>
+            <Results genAccuracyMetrics="true" genConfusionMatrix="true" genROC="true" genLift="true" genTuning="false">
+                <ClassificationResult ModelId="10194" Status="Complete" Name="CLAS_DT_2_117" CreationDate="2014-11-19T22:22:37">
+                    <TestMetrics Name="ODMR$22_22_36_882000LKEDCPG" CreationDate="2014-11-19T22:22:36"/>
+                    <ConfusionMatrix Name="ODMR$22_22_36_851000XNUGZZF" CreationDate="2014-11-19T22:22:36"/>
+                    <Lifts>
+                        <Lift TargetValue="Med" Name="ODMR$22_22_36_975000ZSWLWTN" CreationDate="2014-11-19T22:22:37"/>
+                        <Lift TargetValue="Low" Name="ODMR$22_22_37_038000IXKXNBB" CreationDate="2014-11-19T22:22:37"/>
+                        <Lift TargetValue="High" Name="ODMR$22_22_37_131000CWOFDAW" CreationDate="2014-11-19T22:22:37"/>
+                    </Lifts>
+                    <ROCs/>
+                </ClassificationResult>
+            </Results>
+        </ClassificationBuild>
+        <ClassificationBuild Id="10205" Name="Class Build 2" Status="Complete">
+            <Icon XCOORD="264" YCOORD="-493"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <BuildDataSource SourceId="10199"/>
+            <CaseAttributes>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </CaseAttributes>
+            <MiningAttributes AutoSpec="Yes">
+                <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="GRNDTOTRATE" DataType="NUMBER" Status="Valid"/>
+            </MiningAttributes>
+            <Stoplists>
+                <Stoplist Id="1" Name="Default" Type="Basic" Language="ENGLISH" DBName="">
+                    <StopTokens>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mr</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mrs</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Ms</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>a</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>all</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>almost</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>also</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>although</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>an</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>and</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>any</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>are</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>as</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>at</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>be</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>because</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>been</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>both</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>but</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>by</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>can</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>could</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>d</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>did</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>do</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>does</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>either</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>for</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>from</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>had</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>has</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>have</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>having</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>he</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>her</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>here</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>hers</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>him</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>his</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>how</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>however</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>i</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>if</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>in</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>into</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>is</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>it</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>its</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>just</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ll</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>me</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>might</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>my</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>no</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>non</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>nor</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>not</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>of</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>on</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>one</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>only</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>onto</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>or</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>our</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ours</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>s</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>shall</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>she</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>should</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>since</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>so</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>some</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>still</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>such</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>t</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>than</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>that</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>the</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>their</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>them</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>then</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>there</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>therefore</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>these</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>they</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>this</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>those</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>though</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>through</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>thus</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>to</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>too</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>until</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ve</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>very</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>was</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>we</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>were</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>what</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>when</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>where</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whether</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>which</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>while</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>who</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whose</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>why</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>will</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>with</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>would</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yet</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>you</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>your</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yours</Item>
+                        </Token>
+                    </StopTokens>
+                </Stoplist>
+            </Stoplists>
+            <TextSettings TransformType="Token" CategoricalCutOffValue="200">
+                <Token>
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Name="" Type="Basic">
+                            <Settings/>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Token>
+                <Theme Type="Single">
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Type="Basic">
+                            <Settings>
+                                <Attribute Name="index_themes" ValueString="YES" Type="String"/>
+                                <Attribute Name="theme_language" ValueString="ENGLISH" Type="String"/>
+                            </Settings>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Theme>
+            </TextSettings>
+            <TextAttributes/>
+            <HeuristicSummaryResult StatisticTable="ODMR$22_24_24_069000JDFOBQW">
+                <Attribute Name="FIPS">
+                    <Reason Type="INPUT_NONE"/>
+                </Attribute>
+            </HeuristicSummaryResult>
+            <TestDataSource>
+                <SplitData TestPercent="50.0" DataFormat="Table"/>
+            </TestDataSource>
+            <TargetAttribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+            <Models>
+                <DecisionTreeModel Id="10202" Name="CLAS_DT_3_117" Status="Complete" CreationDate="2014-11-19T22:24:30" Annotation="" UseForOutput="true">
+                    <InputMiningData DataUsage="AUTO" MiningUsage="AUTO">
+                        <MiningAttributes>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="GRNDTOTRATE" DataType="NUMBER" Status="Valid"/>
+                        </MiningAttributes>
+                        <HeuristicResult StatisticTable="ODMR$22_24_24_069000JDFOBQW"/>
+                    </InputMiningData>
+                    <Performance>
+                        <Balanced WeightsTable="ODMR$22_24_27_470000YDISULJ"/>
+                    </Performance>
+                    <Tuning>
+                        <None/>
+                    </Tuning>
+                    <DecisionTreeAlgo>
+                        <TREE_IMPURITY_METRIC>TREE_IMPURITY_GINI</TREE_IMPURITY_METRIC>
+                        <TREE_TERM_MAX_DEPTH>7</TREE_TERM_MAX_DEPTH>
+                        <TREE_TERM_MINPCT_NODE>0.05</TREE_TERM_MINPCT_NODE>
+                        <TREE_TERM_MINPCT_SPLIT>0.1</TREE_TERM_MINPCT_SPLIT>
+                        <TREE_TERM_MINREC_NODE>10</TREE_TERM_MINREC_NODE>
+                        <TREE_TERM_MINREC_SPLIT>20</TREE_TERM_MINREC_SPLIT>
+                    </DecisionTreeAlgo>
+                </DecisionTreeModel>
+            </Models>
+            <TestSettings>
+                <TopNTargets Value="5"/>
+            </TestSettings>
+            <Results genAccuracyMetrics="true" genConfusionMatrix="true" genROC="true" genLift="true" genTuning="false">
+                <ClassificationResult ModelId="10202" Status="Complete" Name="CLAS_DT_3_117" CreationDate="2014-11-19T22:24:32">
+                    <TestMetrics Name="ODMR$22_24_32_244000KSKSAGB" CreationDate="2014-11-19T22:24:32"/>
+                    <ConfusionMatrix Name="ODMR$22_24_32_213000QIAIYMZ" CreationDate="2014-11-19T22:24:32"/>
+                    <Lifts>
+                        <Lift TargetValue="Low" Name="ODMR$22_24_32_306000YMUCEDN" CreationDate="2014-11-19T22:24:32"/>
+                        <Lift TargetValue="Med" Name="ODMR$22_24_32_384000RZNVXUW" CreationDate="2014-11-19T22:24:32"/>
+                        <Lift TargetValue="High" Name="ODMR$22_24_32_431000HYKISRP" CreationDate="2014-11-19T22:24:32"/>
+                    </Lifts>
+                    <ROCs/>
+                </ClassificationResult>
+            </Results>
+        </ClassificationBuild>
+        <ClassificationBuild Id="10222" Name="Class Build 3" Status="Complete">
+            <Icon XCOORD="56" YCOORD="-478"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <BuildDataSource SourceId="10216"/>
+            <CaseAttributes>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </CaseAttributes>
+            <MiningAttributes AutoSpec="Yes">
+                <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="TOT_POP_SUM" DataType="NUMBER" Status="Valid"/>
+            </MiningAttributes>
+            <Stoplists>
+                <Stoplist Id="1" Name="Default" Type="Basic" Language="ENGLISH" DBName="">
+                    <StopTokens>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mr</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mrs</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Ms</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>a</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>all</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>almost</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>also</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>although</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>an</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>and</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>any</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>are</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>as</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>at</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>be</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>because</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>been</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>both</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>but</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>by</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>can</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>could</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>d</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>did</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>do</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>does</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>either</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>for</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>from</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>had</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>has</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>have</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>having</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>he</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>her</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>here</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>hers</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>him</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>his</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>how</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>however</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>i</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>if</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>in</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>into</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>is</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>it</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>its</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>just</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ll</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>me</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>might</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>my</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>no</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>non</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>nor</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>not</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>of</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>on</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>one</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>only</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>onto</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>or</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>our</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ours</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>s</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>shall</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>she</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>should</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>since</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>so</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>some</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>still</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>such</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>t</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>than</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>that</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>the</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>their</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>them</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>then</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>there</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>therefore</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>these</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>they</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>this</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>those</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>though</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>through</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>thus</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>to</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>too</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>until</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ve</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>very</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>was</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>we</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>were</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>what</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>when</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>where</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whether</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>which</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>while</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>who</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whose</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>why</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>will</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>with</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>would</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yet</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>you</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>your</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yours</Item>
+                        </Token>
+                    </StopTokens>
+                </Stoplist>
+            </Stoplists>
+            <TextSettings TransformType="Token" CategoricalCutOffValue="200">
+                <Token>
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Name="" Type="Basic">
+                            <Settings/>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Token>
+                <Theme Type="Single">
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Type="Basic">
+                            <Settings>
+                                <Attribute Name="index_themes" ValueString="YES" Type="String"/>
+                                <Attribute Name="theme_language" ValueString="ENGLISH" Type="String"/>
+                            </Settings>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Theme>
+            </TextSettings>
+            <TextAttributes/>
+            <HeuristicSummaryResult StatisticTable="ODMR$15_49_20_563000XGEWKAA">
+                <Attribute Name="FIPS">
+                    <Reason Type="INPUT_NONE"/>
+                </Attribute>
+            </HeuristicSummaryResult>
+            <TestDataSource>
+                <SplitData TestPercent="40.0" DataFormat="Table"/>
+            </TestDataSource>
+            <TargetAttribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+            <Models>
+                <DecisionTreeModel Id="10219" Name="CLAS_DT_4_117" Status="Complete" CreationDate="2014-11-20T15:54:50" Annotation="" UseForOutput="true">
+                    <InputMiningData DataUsage="AUTO" MiningUsage="AUTO">
+                        <MiningAttributes>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="TOT_POP_SUM" DataType="NUMBER" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                        </MiningAttributes>
+                        <HeuristicResult StatisticTable="ODMR$15_49_20_563000XGEWKAA"/>
+                    </InputMiningData>
+                    <Performance>
+                        <Balanced WeightsTable="ODMR$15_50_08_861000VCFCEDQ"/>
+                    </Performance>
+                    <Tuning>
+                        <None/>
+                    </Tuning>
+                    <DecisionTreeAlgo>
+                        <TREE_IMPURITY_METRIC>TREE_IMPURITY_GINI</TREE_IMPURITY_METRIC>
+                        <TREE_TERM_MAX_DEPTH>7</TREE_TERM_MAX_DEPTH>
+                        <TREE_TERM_MINPCT_NODE>0.05</TREE_TERM_MINPCT_NODE>
+                        <TREE_TERM_MINPCT_SPLIT>0.1</TREE_TERM_MINPCT_SPLIT>
+                        <TREE_TERM_MINREC_NODE>10</TREE_TERM_MINREC_NODE>
+                        <TREE_TERM_MINREC_SPLIT>20</TREE_TERM_MINREC_SPLIT>
+                    </DecisionTreeAlgo>
+                </DecisionTreeModel>
+            </Models>
+            <TestSettings>
+                <TopNTargets Value="5"/>
+            </TestSettings>
+            <Results genAccuracyMetrics="true" genConfusionMatrix="true" genROC="true" genLift="true" genTuning="false">
+                <ClassificationResult ModelId="10219" Status="Complete" Name="CLAS_DT_4_117" CreationDate="2014-11-20T15:55:10">
+                    <TestMetrics Name="ODMR$15_55_02_921000GEDFBWA" CreationDate="2014-11-20T15:55:02"/>
+                    <ConfusionMatrix Name="ODMR$15_55_01_236000OZZQPBQ" CreationDate="2014-11-20T15:55:02"/>
+                    <Lifts>
+                        <Lift TargetValue="Low" Name="ODMR$15_55_03_498000AGWFLEV" CreationDate="2014-11-20T15:55:05"/>
+                        <Lift TargetValue="Med" Name="ODMR$15_55_05_775000EKVIHXZ" CreationDate="2014-11-20T15:55:08"/>
+                        <Lift TargetValue="High" Name="ODMR$15_55_08_942000ODRROQQ" CreationDate="2014-11-20T15:55:09"/>
+                    </Lifts>
+                    <ROCs/>
+                </ClassificationResult>
+            </Results>
+        </ClassificationBuild>
+        <ClassificationBuild Id="10230" Name="Class Build" Status="Complete">
+            <Icon XCOORD="374" YCOORD="-361"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <BuildDataSource SourceId="10224"/>
+            <CaseAttributes>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </CaseAttributes>
+            <MiningAttributes AutoSpec="Yes">
+                <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </MiningAttributes>
+            <Stoplists>
+                <Stoplist Id="1" Name="Default" Type="Basic" Language="ENGLISH" DBName="">
+                    <StopTokens>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mr</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Mrs</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>Ms</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>a</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>all</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>almost</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>also</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>although</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>an</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>and</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>any</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>are</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>as</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>at</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>be</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>because</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>been</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>both</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>but</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>by</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>can</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>could</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>d</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>did</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>do</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>does</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>either</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>for</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>from</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>had</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>has</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>have</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>having</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>he</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>her</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>here</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>hers</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>him</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>his</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>how</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>however</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>i</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>if</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>in</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>into</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>is</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>it</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>its</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>just</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ll</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>me</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>might</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>my</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>no</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>non</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>nor</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>not</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>of</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>on</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>one</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>only</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>onto</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>or</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>our</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ours</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>s</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>shall</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>she</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>should</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>since</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>so</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>some</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>still</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>such</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>t</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>than</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>that</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>the</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>their</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>them</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>then</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>there</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>therefore</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>these</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>they</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>this</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>those</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>though</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>through</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>thus</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>to</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>too</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>until</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>ve</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>very</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>was</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>we</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>were</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>what</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>when</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>where</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whether</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>which</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>while</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>who</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>whose</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>why</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>will</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>with</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>would</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yet</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>you</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>your</Item>
+                        </Token>
+                        <Token Type="Word" Language="ENGLISH">
+                            <Item>yours</Item>
+                        </Token>
+                    </StopTokens>
+                </Stoplist>
+            </Stoplists>
+            <TextSettings TransformType="Token" CategoricalCutOffValue="200">
+                <Token>
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Name="" Type="Basic">
+                            <Settings/>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Token>
+                <Theme Type="Single">
+                    <Token MaxNumberPerDoc="50" MaxNumberAllDocs="3000" Frequency="IDF" StoplistId="1" Policy="">
+                        <Lexer Type="Basic">
+                            <Settings>
+                                <Attribute Name="index_themes" ValueString="YES" Type="String"/>
+                                <Attribute Name="theme_language" ValueString="ENGLISH" Type="String"/>
+                            </Settings>
+                        </Lexer>
+                        <Languages>
+                            <Language Name="ENGLISH" Type="SingleByte"/>
+                        </Languages>
+                    </Token>
+                </Theme>
+            </TextSettings>
+            <TextAttributes/>
+            <HeuristicSummaryResult StatisticTable="ODMR$16_42_59_763000JGVPTML">
+                <Attribute Name="FIPS">
+                    <Reason Type="INPUT_NONE"/>
+                </Attribute>
+            </HeuristicSummaryResult>
+            <TestDataSource>
+                <SplitData TestPercent="40.0" DataFormat="Table"/>
+            </TestDataSource>
+            <TargetAttribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+            <Models>
+                <DecisionTreeModel Id="10227" Name="CLAS_DT_5_117" Status="Complete" CreationDate="2014-11-20T16:43:19" Annotation="" UseForOutput="true">
+                    <InputMiningData DataUsage="AUTO" MiningUsage="AUTO">
+                        <MiningAttributes>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Categorical" Input="Yes" Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="Yes" Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                            <MiningAttribute AutoPrep="Yes" MiningType="Numerical" Input="No" Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                        </MiningAttributes>
+                        <HeuristicResult StatisticTable="ODMR$16_42_59_763000JGVPTML"/>
+                    </InputMiningData>
+                    <Performance>
+                        <Balanced WeightsTable="ODMR$16_43_02_961000QUDSXJV"/>
+                    </Performance>
+                    <Tuning>
+                        <None/>
+                    </Tuning>
+                    <DecisionTreeAlgo>
+                        <TREE_IMPURITY_METRIC>TREE_IMPURITY_GINI</TREE_IMPURITY_METRIC>
+                        <TREE_TERM_MAX_DEPTH>7</TREE_TERM_MAX_DEPTH>
+                        <TREE_TERM_MINPCT_NODE>0.05</TREE_TERM_MINPCT_NODE>
+                        <TREE_TERM_MINPCT_SPLIT>0.1</TREE_TERM_MINPCT_SPLIT>
+                        <TREE_TERM_MINREC_NODE>10</TREE_TERM_MINREC_NODE>
+                        <TREE_TERM_MINREC_SPLIT>20</TREE_TERM_MINREC_SPLIT>
+                    </DecisionTreeAlgo>
+                </DecisionTreeModel>
+            </Models>
+            <TestSettings>
+                <TopNTargets Value="5"/>
+            </TestSettings>
+            <Results genAccuracyMetrics="true" genConfusionMatrix="true" genROC="true" genLift="true" genTuning="false">
+                <ClassificationResult ModelId="10227" Status="Complete" Name="CLAS_DT_5_117" CreationDate="2014-11-20T16:43:24">
+                    <TestMetrics Name="ODMR$16_43_23_195000ESAWZBK" CreationDate="2014-11-20T16:43:23"/>
+                    <ConfusionMatrix Name="ODMR$16_43_22_602000JHRSHLY" CreationDate="2014-11-20T16:43:23"/>
+                    <Lifts>
+                        <Lift TargetValue="Low" Name="ODMR$16_43_24_302000QOIMMKA" CreationDate="2014-11-20T16:43:24"/>
+                        <Lift TargetValue="Med" Name="ODMR$16_43_24_365000LAEKRDT" CreationDate="2014-11-20T16:43:24"/>
+                        <Lift TargetValue="High" Name="ODMR$16_43_24_411000ZRIRGHS" CreationDate="2014-11-20T16:43:24"/>
+                    </Lifts>
+                    <ROCs/>
+                </ClassificationResult>
+            </Results>
+        </ClassificationBuild>
+        <SQLQuery HasWithClause="false" GenerateView="false" ViewName="OUTPUT_3_117" Id="10085" Name="SQL Query" Status="Complete">
+            <Icon XCOORD="314" YCOORD="229"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"DODGood_N$10060" as (SELECT * FROM {INPUT_SOURCE:10060}),
+"N$10085" as (select a.*,
+a."Acquisition_Cost"*a."QUANTITY" AS transaction_cost
+from "DODGood_N$10060" a)
+</SQLExpression>
+            <SQLQueryExpression>select a.*,
+a."Acquisition_Cost"*a."QUANTITY" AS transaction_cost
+from "DODGood_N$10060" a</SQLQueryExpression>
+            <SQLQueryOutputColumns>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CATEGORY_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CATEGORY" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="NSN" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="UI" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="Acquisition_Cost" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CLASS_NAME" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="Item_Name" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="FEDERAL_SUPPLY_CLASS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ID" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SHIP_DATE" DataType="DATE" Status="Valid"/>
+                <Attribute Name="QUANTITY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="TRANSACTION_COST" DataType="NUMBER" Status="Valid"/>
+            </SQLQueryOutputColumns>
+        </SQLQuery>
+        <SQLQuery HasWithClause="false" GenerateView="false" ViewName="OUTPUT_4_117" Id="10145" Name="CrimeDoDGroup" Status="Complete">
+            <Icon XCOORD="423" YCOORD="-53"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"CrimeDoDByCounty_N$10140" as (SELECT * FROM {INPUT_SOURCE:10140}),
+"N$10145" as (select a.*,
+case
+when a."TRANSACTION_COST_SUM" &gt; 250000 then 'High'
+when a."TRANSACTION_COST_SUM" &gt; 10000 then 'Med'
+else 'Low'
+end as cost_group
+from "CrimeDoDByCounty_N$10140" a)
+</SQLExpression>
+            <SQLQueryExpression>select a.*,
+case
+when a."TRANSACTION_COST_SUM" &gt; 250000 then 'High'
+when a."TRANSACTION_COST_SUM" &gt; 10000 then 'Med'
+else 'Low'
+end as cost_group
+from "CrimeDoDByCounty_N$10140" a</SQLQueryExpression>
+            <SQLQueryOutputColumns>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COUNTY" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="STATE" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="TRANSACTION_COST_SUM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="PART" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GRNDTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="WEAPONS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="JURFLAG" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1TOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STLNPRP" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ROBBERY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AGASSLT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DISORDR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OFAGFAM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GAMBLE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRUNK" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SUSPICN" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="CPOPARST" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTGAMBL" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SEXOFF" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="VAGRANT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STUDYNO" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="EDITION" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="NUMBERS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SYNPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="LIQUOR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FRGYCNT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COVIND" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COCSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1VLNT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DUI" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="P1PRPTY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="RUNAWAY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FRAUD" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="EMBEZL" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BOOKMKG" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MVTHEFT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="BURGLRY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="AG_ARRST" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MJPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ALLOTHR" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="LARCENY" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COMVICE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="IDNO" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="VANDLSM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="CURFEW" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MJSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="RAPE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COCPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="ARSON" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="SYNSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="OTHASLT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="MURDER" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+            </SQLQueryOutputColumns>
+        </SQLQuery>
+        <SQLQuery HasWithClause="false" GenerateView="false" ViewName="OUTPUT_6_117" Id="10160" Name="SQL Query 1" Status="Complete">
+            <Icon XCOORD="420" YCOORD="-152"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"CrimeDoDGroup_N$10145" as (SELECT * FROM {INPUT_SOURCE:10145}),
+"N$10160" as (select a."COST_GROUP",a."DRGPOSS",a."DRGSALE",a."DRUGTOT",a."GRNDTOT",a."FIPS",a."COUNTYFIPS",a."STATEFIPS"
+from "CrimeDoDGroup_N$10145" a)
+</SQLExpression>
+            <SQLQueryExpression>select a."COST_GROUP",a."DRGPOSS",a."DRGSALE",a."DRUGTOT",a."GRNDTOT",a."FIPS",a."COUNTYFIPS",a."STATEFIPS"
+from "CrimeDoDGroup_N$10145" a</SQLQueryExpression>
+            <SQLQueryOutputColumns>
+                <Attribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="DRGPOSS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGSALE" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GRNDTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="COUNTYFIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="STATEFIPS" DataType="NUMBER" Status="Valid"/>
+            </SQLQueryOutputColumns>
+        </SQLQuery>
+        <SQLQuery HasWithClause="false" GenerateView="false" ViewName="OUTPUT_5_117" Id="10191" Name="SQL Query 2" Status="Complete">
+            <Icon XCOORD="181" YCOORD="-355"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"Join_N$10188" as (SELECT * FROM {INPUT_SOURCE:10188}),
+"N$10191" as (select a."COST_GROUP",
+a."FIPS",
+a."TOT_POP_SUM"/a."DRUGTOT" as DRGTOTRATE
+from "Join_N$10188" a
+where a."DRUGTOT" &gt; 0)
+</SQLExpression>
+            <SQLQueryExpression>select a."COST_GROUP",
+a."FIPS",
+a."TOT_POP_SUM"/a."DRUGTOT" as DRGTOTRATE
+from "Join_N$10188" a
+where a."DRUGTOT" &gt; 0</SQLQueryExpression>
+            <SQLQueryOutputColumns>
+                <Attribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="DRGTOTRATE" DataType="NUMBER" Status="Valid"/>
+            </SQLQueryOutputColumns>
+        </SQLQuery>
+        <SQLQuery HasWithClause="false" GenerateView="false" ViewName="OUTPUT_7_117" Id="10199" Name="SQL Query 3" Status="Complete">
+            <Icon XCOORD="279" YCOORD="-378"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"Join_N$10188" as (SELECT * FROM {INPUT_SOURCE:10188}),
+"N$10199" as (select a."COST_GROUP",
+a."FIPS",
+a."TOT_POP_SUM"/a."GRNDTOT" as GRNDTOTRATE
+from "Join_N$10188" a)
+</SQLExpression>
+            <SQLQueryExpression>select a."COST_GROUP",
+a."FIPS",
+a."TOT_POP_SUM"/a."GRNDTOT" as GRNDTOTRATE
+from "Join_N$10188" a</SQLQueryExpression>
+            <SQLQueryOutputColumns>
+                <Attribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="GRNDTOTRATE" DataType="NUMBER" Status="Valid"/>
+            </SQLQueryOutputColumns>
+        </SQLQuery>
+        <SQLQuery HasWithClause="false" GenerateView="false" ViewName="OUTPUT_8_117" Id="10216" Name="SQL Query 4" Status="Complete">
+            <Icon XCOORD="77" YCOORD="-380"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"Join_N$10188" as (SELECT * FROM {INPUT_SOURCE:10188}),
+"N$10216" as (select a."COST_GROUP", a."TOT_POP_SUM", a."FIPS"
+from "Join_N$10188" a)
+</SQLExpression>
+            <SQLQueryExpression>select a."COST_GROUP", a."TOT_POP_SUM", a."FIPS"
+from "Join_N$10188" a</SQLQueryExpression>
+            <SQLQueryOutputColumns>
+                <Attribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="TOT_POP_SUM" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </SQLQueryOutputColumns>
+        </SQLQuery>
+        <SQLQuery HasWithClause="false" GenerateView="false" ViewName="OUTPUT_9_117" Id="10224" Name="SQL Query 5" Status="Complete">
+            <Icon XCOORD="389" YCOORD="-256"></Icon>
+            <Messages/>
+            <Parallelism Enable="false">
+                <SystemDetermined/>
+            </Parallelism>
+            <CacheSettings UseFullData="false" GenerateCache="false">
+                <NumberOfRows>2000</NumberOfRows>
+                <Method>
+                    <TopN/>
+                </Method>
+            </CacheSettings>
+            <SQLExpression>"SQL Query 1_N$10160" as (SELECT * FROM {INPUT_SOURCE:10160}),
+"N$10224" as (select a."COST_GROUP",a."DRUGTOT", a."FIPS"
+from "SQL Query 1_N$10160" a)
+</SQLExpression>
+            <SQLQueryExpression>select a."COST_GROUP",a."DRUGTOT", a."FIPS"
+from "SQL Query 1_N$10160" a</SQLQueryExpression>
+            <SQLQueryOutputColumns>
+                <Attribute Name="COST_GROUP" DataType="VARCHAR2" Status="Valid"/>
+                <Attribute Name="DRUGTOT" DataType="NUMBER" Status="Valid"/>
+                <Attribute Name="FIPS" DataType="NUMBER" Status="Valid"/>
+            </SQLQueryOutputColumns>
+        </SQLQuery>
+    </Nodes>
+    <Links>
+        <Link Id="10045" From="10042" To="10044" Name="Link" Label="From &quot;INVENTORY&quot; to &quot;Join 2&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10046" From="10043" To="10044" Name="Link" Label="From &quot;TRANSACTIONS&quot; to &quot;Join 2&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10061" From="10051" To="10060" Name="Link" Label="From &quot;FIPS1&quot; to &quot;DODGood&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10062" From="10044" To="10060" Name="Link" Label="From &quot;Join 2&quot; to &quot;DODGood&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10086" From="10060" To="10085" Name="Link" Label="From &quot;DODGood&quot; to &quot;SQL Query&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10135" From="10085" To="10134" Name="Link" Label="From &quot;SQL Query&quot; to &quot;FundsByCounty&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10139" From="10051" To="10137" Name="Link" Label="From &quot;FIPS1&quot; to &quot;Crime2011Good&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10142" From="10134" To="10140" Name="Link" Label="From &quot;FundsByCounty&quot; to &quot;CrimeDoDByCounty&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10161" From="10145" To="10160" Name="Link" Label="From &quot;CrimeDoDGroup&quot; to &quot;SQL Query 1&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10172" From="10137" To="10171" Name="Link" Label="From &quot;Crime2011Good&quot; to &quot;Filter Rows&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10173" From="10171" To="10140" Name="Link" Label="From &quot;Filter Rows&quot; to &quot;CrimeDoDByCounty&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10174" From="10140" To="10145" Name="Link" Label="From &quot;CrimeDoDByCounty&quot; to &quot;CrimeDoDGroup&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10177" From="10176" To="10137" Name="Link" Label="From &quot;CRIME2010&quot; to &quot;Crime2011Good&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10185" From="10180" To="10184" Name="Link" Label="From &quot;POPULATION&quot; to &quot;Aggregate&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10189" From="10160" To="10188" Name="Link" Label="From &quot;SQL Query 1&quot; to &quot;Join&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10190" From="10184" To="10188" Name="Link" Label="From &quot;Aggregate&quot; to &quot;Join&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10192" From="10188" To="10191" Name="Link" Label="From &quot;Join&quot; to &quot;SQL Query 2&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10198" From="10191" To="10197" Name="Link" Label="From &quot;SQL Query 2&quot; to &quot;Class Build 1&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10200" From="10188" To="10199" Name="Link" Label="From &quot;Join&quot; to &quot;SQL Query 3&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10206" From="10199" To="10205" Name="Link" Label="From &quot;SQL Query 3&quot; to &quot;Class Build 2&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10207" From="10191" To="10197" Name="Link" Label="From &quot;SQL Query 2&quot; to &quot;Class Build 1&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10208" From="10199" To="10205" Name="Link" Label="From &quot;SQL Query 3&quot; to &quot;Class Build 2&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10217" From="10188" To="10216" Name="Link" Label="From &quot;Join&quot; to &quot;SQL Query 4&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10223" From="10216" To="10222" Name="Link" Label="From &quot;SQL Query 4&quot; to &quot;Class Build 3&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10225" From="10160" To="10224" Name="Link" Label="From &quot;SQL Query 1&quot; to &quot;SQL Query 5&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+        <Link Id="10231" From="10224" To="10230" Name="Link" Label="From &quot;SQL Query 5&quot; to &quot;Class Build&quot;">
+            <ConnectorGraphicsInfo>
+                <Coordinates XCoordinate="0.0" YCoordinate="0.0"/>
+            </ConnectorGraphicsInfo>
+        </Link>
+    </Links>
+</WorkflowProcess>
