@@ -1,10 +1,7 @@
 DoD 1033 Program Data Analysis
 ============
 
-####RStudio config:
-```{r}
-sessionInfo()
-```
+
 ####About the 1033 Program:
 
 The 1033 program was iniated in 1990 with the purpose of combating illegal drug activities using material not needed by the Department of Defense. Later, this was expanded to include efforts to combat terrorism as well.
